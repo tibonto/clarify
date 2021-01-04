@@ -14,6 +14,12 @@
 #################################################################################################################################################
 #################################################################################################################################################
 
+clarify:Concept	rdf:type	owl:Class;
+				rdfs:label	"Concept";
+				rdfs:comment "Constituents of thoughts or real world entities.";
+				dcterms:modified "2020-10-19"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
 clarify:Annotation	rdf:type	owl:Class;
 					rdfs:label	"Annotation";
 					rdfs:comment "Annotation of a concept including label, id and source of concept.";
@@ -41,13 +47,6 @@ clarify:Diagnosis  	rdf:type owl:Class;
 					dcterms:modified "2020-09-15"^^xsd:date;
 					prv:File "diagnostic.ttl";
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:Gender	rdf:type	owl:Class;
-						rdfs:label	"Gender";
-						rdfs:comment "The gender of patients.";
-						dcterms:modified "2020-10-19"^^xsd:date;
-						prv:File "patient.ttl";
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:Race	rdf:type	owl:Class;
 						rdfs:label	"Race";
@@ -1619,15 +1618,7 @@ clarify:hasCUIAnnotation	rdf:type owl:ObjectProperty;
 							rdfs:comment	"CUI annotation of the concept.";
 							dcterms:modified "2020-10-19"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:gender	rdf:type	owl:ObjectProperty;
-				rdfs:label	"gender";
-				rdfs:domain	clarify:CancerPatient;
-				rdfs:range	clarify:Gender;
-				rdfs:comment	"Gender value of the patient.";
-				dcterms:modified "2020-10-19"^^xsd:date;
-				prv:File "patient.ttl";
-				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+	
 
 clarify:hasRace	rdf:type	owl:ObjectProperty;
 				rdfs:label	"hasRace";
