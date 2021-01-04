@@ -14,12 +14,6 @@
 #################################################################################################################################################
 #################################################################################################################################################
 
-clarify:Concept	rdf:type	owl:Class;
-				rdfs:label	"Concept";
-				rdfs:comment "Constituents of thoughts or real world entities.";
-				dcterms:modified "2020-10-19"^^xsd:date;
-				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 clarify:Annotation	rdf:type	owl:Class;
 					rdfs:label	"Annotation";
 					rdfs:comment "Annotation of a concept including label, id and source of concept.";
