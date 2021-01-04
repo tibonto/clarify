@@ -1626,14 +1626,6 @@ clarify:hasCUIAnnotation	rdf:type owl:ObjectProperty;
 							dcterms:modified "2020-10-19"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:gender	rdf:type	owl:ObjectProperty;
-				rdfs:label	"gender";
-				rdfs:domain	clarify:CancerPatient;
-				rdfs:range	clarify:Gender;
-				rdfs:comment	"Gender value of the patient.";
-				dcterms:modified "2020-10-19"^^xsd:date;
-				prv:File "patient.ttl";
-				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:hasRace	rdf:type	owl:ObjectProperty;
 				rdfs:label	"hasRace";
