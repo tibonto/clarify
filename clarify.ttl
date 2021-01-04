@@ -48,6 +48,13 @@ clarify:Diagnosis  	rdf:type owl:Class;
 					prv:File "diagnostic.ttl";
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
+clarify:Gender	rdf:type	owl:Class;
+						rdfs:label	"Gender";
+						rdfs:comment "The gender of patients.";
+						dcterms:modified "2020-10-19"^^xsd:date;
+						prv:File "patient.ttl";
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
 clarify:Race	rdf:type	owl:Class;
 						rdfs:label	"Race";
 						rdfs:comment "The race of patients.";
@@ -1618,7 +1625,15 @@ clarify:hasCUIAnnotation	rdf:type owl:ObjectProperty;
 							rdfs:comment	"CUI annotation of the concept.";
 							dcterms:modified "2020-10-19"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-	
+
+clarify:gender	rdf:type	owl:ObjectProperty;
+				rdfs:label	"gender";
+				rdfs:domain	clarify:CancerPatient;
+				rdfs:range	clarify:Gender;
+				rdfs:comment	"Gender value of the patient.";
+				dcterms:modified "2020-10-19"^^xsd:date;
+				prv:File "patient.ttl";
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:hasRace	rdf:type	owl:ObjectProperty;
 				rdfs:label	"hasRace";
