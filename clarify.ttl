@@ -442,6 +442,37 @@ clarify:CancerStage	rdf:type	owl:Class;
 					prv:File "stages.ttl";
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+######################################################################################################################################
+#################################################    Drug Predictions   ##############################################################
+######################################################################################################################################
+
+clarify:DrugDrugPrediction	rdf:type owl:Class;
+						rdfs:label	"DrugDrugPrediction";
+						rdfs:subClassOf	clarify:Interaction;
+						rdfs:comment "Represents the predicted relation between drugs.";
+						dcterms:modified "2021-01-07"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:DrugEnzymePrediction	rdf:type owl:Class;
+							rdfs:label	"DrugEnzymePrediction";
+							rdfs:subClassOf	clarify:Interaction;
+							rdfs:comment "Represents the predicted relation between drug and enzyme.";
+							dcterms:modified "2021-01-07"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:DrugSideEffectPrediction	rdf:type owl:Class;
+								rdfs:label	"DrugSideEffectPrediction";
+								rdfs:subClassOf	clarify:Interaction;
+								rdfs:comment "Represents the predicted relation between drug and side effects.";
+								dcterms:modified "2021-01-07"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:DrugTargetPrediction	rdf:type owl:Class;
+							rdfs:label	"DrugTargetPrediction";
+							rdfs:subClassOf	clarify:Interaction;
+							rdfs:comment "Represents the predicted relation between drug and target.";
+							dcterms:modified "2021-01-07"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 #################################################################################################################################################
 #################################################################################################################################################
@@ -2171,6 +2202,37 @@ clarify:impact	rdf:type	owl:DatatypeProperty;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
 
+######################################################################################################################################
+#################################################    Drug Predictions   ##############################################################
+######################################################################################################################################
+
+clarify:interactor2	rdf:type	owl:ObjectProperty;
+							rdfs:label	"interactor2";
+							rdfs:domain	clarify:Interaction;
+							rdfs:range	clarify:Concept;
+							rdfs:comment	"Relation which connects an interacion to the second involved concept (e.g. disorder, enzyme,...).";
+							dcterms:modified "2021-01-07"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.							
+
+clarify:predictionMethod	rdf:type	owl:DatatypeProperty;
+							rdfs:label	"predictionMethod";
+							rdfs:domain	clarify:Interaction;
+							rdfs:range	rdfs:Literal;
+							rdfs:comment "Represents the prediction method that is used in order to extract DDI predictions from literature or databases.";
+							dcterms:modified "2021-01-07"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:methodAbbreviation	rdf:type	owl:DatatypeProperty;
+							rdfs:label	"methodAbbreviation";
+							rdfs:domain	clarify:Interaction;
+							rdfs:range	rdfs:Literal;
+							rdfs:comment "Represents the abbreviation of the prediction method that is used.";
+							dcterms:modified "2021-01-07"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+
+
+
 #################################################################################################################################################																																			
 #################################################################################################################################################
 #################################################################################################################################################
@@ -2634,3 +2696,4 @@ clarify:hasHPOAnnotation	rdf:type owl:ObjectProperty;
 						prv:File "toxicity.ttl";
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 						
+									
