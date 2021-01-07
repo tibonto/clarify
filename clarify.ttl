@@ -373,6 +373,12 @@ clarify:Disorder	rdf:type	owl:Class;
 				dcterms:modified "2020-09-14"^^xsd:date;
 				prv:File "indication_CUI";
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+clarify:Interaction	rdf:type owl:Class;
+			rdfs:label	"Interaction";
+			rdfs:subClassOf	clarify:Concept;
+			rdfs:comment "Interaction between drugs and disorder, enzyme, target.";
+			dcterms:modified "2021-01-07"^^xsd:date;
+			dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:DrugDrugInteraction	rdf:type	owl:Class;
 				rdfs:label	"DrugDrugInteraction";
