@@ -681,7 +681,7 @@ clarify:mutation_NOS_result	rdf:type	owl:DatatypeProperty;
 								rdfs:label	"mutation_NOS_result";
 								rdfs:domain	clarify:Biomarker;
 								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the mutation assoc\iated with NOS.";
+								rdfs:comment "Represents the mutation associated with NOS.";
 								dcterms:modified "2020-10-19"^^xsd:date;
 								prv:File "egfr_mutation.ttl";								
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
