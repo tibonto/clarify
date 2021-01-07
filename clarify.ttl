@@ -376,7 +376,7 @@ clarify:Disorder	rdf:type	owl:Class;
 
 clarify:DrugDrugInteraction	rdf:type	owl:Class;
 				rdfs:label	"DrugDrugInteraction";
-				rdfs:subClassOf	clarify:Relation;
+				rdfs:subClassOf	clarify:Interaction;
 				rdfs:comment "The relation between two drugs that interact.";
 				dcterms:modified "2020-12-15"^^xsd:date;
 				prv:File "CRD.ttl";
@@ -384,6 +384,13 @@ clarify:DrugDrugInteraction	rdf:type	owl:Class;
 				prv:File "drugDrugInteraction_non-symmetric.ttl";
 				prv:File "drugDrugInteraction_symmetric.ttl";
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:Interaction	rdf:type owl:Class;
+			rdfs:label	"Interaction";
+			rdfs:subClassOf	clarify:Concept;
+			rdfs:comment "Interaction between drugs and disorder, enzyme, target.";
+			dcterms:modified "2021-01-07"^^xsd:date;
+			dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:DrugDisorderInteraction	rdf:type	owl:Class;
 				rdfs:label	"DrugDisorderInteraction";
@@ -681,7 +688,7 @@ clarify:mutation_NOS_result	rdf:type	owl:DatatypeProperty;
 								rdfs:label	"mutation_NOS_result";
 								rdfs:domain	clarify:Biomarker;
 								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the mutation assoc\iated with NOS.";
+								rdfs:comment "Represents the mutation associated with NOS.";
 								dcterms:modified "2020-10-19"^^xsd:date;
 								prv:File "egfr_mutation.ttl";								
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
