@@ -5,7 +5,7 @@
 
 shortName: clarify
 title: CLARIFYUnifiedSchema
-description: A unified schema for representing data integrated in the CLARIFY knowledge graph. This schema defines the main classes and properties presented in data sources that make available clinical notes, scientific publication, genomic data, and drug interactions and the relationships among them.
+description: A unified schema for representing data integrated in the CLARIFY knowledge graph. This schema defines the main classes and properties presented in Spanish Lung Cancer Group (SLCG) clinical data.
 autorFullName: Samaneh Jozashoori, Maria-Esther Vidal
 authorEmail: samaneh.jozashoori@tib.eu, maria.vidal@tib.eu
 maintainerFullname: Samaneh Jozashoori
