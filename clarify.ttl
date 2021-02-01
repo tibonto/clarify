@@ -268,14 +268,6 @@ clarify:Prediagnosis  	rdf:type owl:Class;
 					prv:File "Prediagnosis_symptoms.ttl";
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
-clarify:Hemogram  	rdf:type owl:Class;
-					rdfs:label	"Hemogram";
-					rdfs:subClassOf	clarify:Observation;
-					rdfs:comment "Represents a group of tests on blood samples to provide information about general health. The tests include white blood cell count (WBC), red blood cell count (RBC), hemoglobin (HGB), hematocrit (HCT), mean cell volume (MCV), mean cell hemoglobin (MCH), mean cell hemoglobin concentration (MCHC) and platelet count.";
-					dcterms:modified "2020-10-23"^^xsd:date;
-					prv:File "Hemogram.ttl";
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
 clarify:NonOncologicalConsultation  	rdf:type owl:Class;
 										rdfs:label	"NonOncologicalConsultation";
 										rdfs:subClassOf	clarify:Observation;
@@ -2364,33 +2356,6 @@ clarify:sleepingDifficulty 	rdf:type owl:DatatypeProperty;
 							rdfs:comment "Represents if the patient experienced sleeping difficulty prior to the diagnosis.";
 							dcterms:modified "2020-10-23"^^xsd:date;
 							prv:File "Prediagnosis_symptoms.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:leucocytesCount 	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"leucocytesCount";
-							rdfs:domain	clarify:Hemogram;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents a type of White Blood Cell count (WBC).";
-							dcterms:modified "2020-10-23"^^xsd:date;
-							prv:File "Hemogram.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:lymphocytesCount 	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"lymphocytesCount";
-							rdfs:domain	clarify:Hemogram;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents a type of White Blood Cell count (WBC).";
-							dcterms:modified "2020-10-23"^^xsd:date;
-							prv:File "Hemogram.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:redBloodCellCount 	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"redBloodCellCount";
-							rdfs:domain	clarify:Hemogram;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents Red Blood Cell count (RBC).";
-							dcterms:modified "2020-10-23"^^xsd:date;
-							prv:File "Hemogram.ttl";
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:synchronousTumor 	rdf:type owl:DatatypeProperty;	
