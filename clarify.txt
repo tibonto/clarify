@@ -12,6 +12,6 @@ maintainerFullname: Samaneh Jozashoori
 maintainerEmail: samaneh.jozashoori@tib.eu
 keywords:
 license: GNU General Public License v3.0
-version: v1.0
+version: v2.0
 repositoryURL: https://github.com/tibonto/clarify  # do not change this
 releaseURL: https://github.com/tibonto/clarify/releases/tag/R1.0
