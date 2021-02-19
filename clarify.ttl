@@ -3189,4 +3189,3 @@ clarify:hasHPOAnnotation	rdf:type owl:ObjectProperty;
 						dcterms:modified "2020-12-15"^^xsd:date;
 						prv:File "toxicity.ttl";
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-						
