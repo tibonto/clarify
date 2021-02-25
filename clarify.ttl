@@ -15,9 +15,11 @@
 #################################################################################################################################################
 
 
+
 ######################################################################################################################################
 #########################################################    SLCG    #################################################################
 ######################################################################################################################################
+
 
 
 clarify:Concept	rdf:type	owl:Class;
@@ -99,9 +101,23 @@ clarify:Carcinogen	 rdf:type	owl:Class;
 clarify:ProgressionRelapseObservation	rdf:type	owl:Class;
 										rdfs:label	"ProgressionRelapseObservation";
 										rdfs:subClassOf	clarify:Observation;
-										rdfs:comment "Indicates if the disease is relapsed or progressed.";
-										dcterms:modified "2020-10-20"^^xsd:date;
+										rdfs:comment "Represents the observation of progression OR relapse in the patient.";
+										dcterms:modified "2021-02-25"^^xsd:date;
 										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:ProgressionRelapse	rdf:type	owl:Class;
+							rdfs:label	"ProgressionRelapse";
+							rdfs:subClassOf	clarify:Concept;
+							rdfs:comment "Indicates the existance of progression OR relapse in the patient.";
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:ProgressionOrRelapse	rdf:type	owl:Class;
+								rdfs:label	"ProgressionOrRelapse";
+								rdfs:subClassOf	clarify:Concept;
+								rdfs:comment "Indicates which one of the progression or relapse is observed in the patient.";
+								dcterms:modified "2021-02-25"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
 clarify:PatientHistory	rdf:type	owl:Class;
 						rdfs:label	"PatientHistory";
@@ -138,24 +154,22 @@ clarify:CancerStage	 rdf:type	owl:Class;
 					dcterms:modified "2020-10-20"^^xsd:date;
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:CancerStageCoded	rdf:type	owl:Class;
-							rdfs:label	"CancerStageCoded";
-							rdfs:subClassOf	clarify:Observation;
-							rdfs:comment "Determines a patient's prognosis, based on a scale that is provided by UPM.";
-							dcterms:modified "2020-12-10"^^xsd:date;
-							prv:File "diagnosis.ttl";
+clarify:OccurrenceLocation	rdf:type	owl:Class;
+							rdfs:label	"OccurrenceLocation";
+							rdfs:subClassOf	clarify:Concept;
+							dcterms:modified "2021-02-25"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:MetastasisLocation	 rdf:type	owl:Class;
-					rdfs:label	"MetastasisLocation";
-					rdfs:subClassOf	clarify:Observation;
-					rdfs:comment "Determines the area to which the cancer is metastasized.";
-					dcterms:modified "2020-10-20"^^xsd:date;
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+clarify:MetastasisLocation	rdf:type	owl:Class;
+							rdfs:label	"MetastasisLocation";
+							rdfs:subClassOf	clarify:OccurrenceLocation;
+							rdfs:comment "Determines the area to which the cancer is metastasized.";
+							dcterms:modified "2020-10-20"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:OncologicalTreatmentLine	rdf:type	owl:Class;
 								rdfs:label	"OncologicalTreatmentLine";
-								rdfs:subClassOf clarify:Concept;
+								rdfs:subClassOf clarify:Observation;
 								rdfs:comment "Records of patients in clinical notes that are related to oncological treatment lines";
 								dcterms:modified "2020-10-20"^^xsd:date;
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
@@ -282,7 +296,327 @@ clarify:NonOncologicalConsultation  	rdf:type owl:Class;
 										prv:File "First_consultation_pre_oncology.ttl";
 										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
+clarify:TreatmentLineType  	rdf:type owl:Class;
+							rdfs:label	"TreatmentLineType";
+							rdfs:subClassOf	clarify:Concept;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
+clarify:ChemoTreatmentLineType  	rdf:type owl:Class;
+									rdfs:label	"ChemoTreatmentLineType";
+									rdfs:subClassOf	clarify:TreatmentLineType;
+									dcterms:modified "2021-02-18"^^xsd:date;
+									prv:File "chemotherapy_treatment_line.ttl";
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:TreatementLineBestResponse  	rdf:type owl:Class;
+										rdfs:label	"TreatementLineBestResponse";
+										rdfs:subClassOf	clarify:Concept;
+										dcterms:modified "2021-02-18"^^xsd:date;
+										prv:File "chemotherapy_treatment_line.ttl";
+										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:CancerType  rdf:type owl:Class;
+					rdfs:label	"CancerType";
+					rdfs:subClassOf	clarify:Concept;
+					dcterms:modified "2021-02-18"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:BiomarkerResult rdf:type owl:Class;
+						rdfs:label	"BiomarkerResult";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:BiomarkerIHQResult  rdf:type owl:Class;
+							rdfs:label	"BiomarkerIHQResult";
+							rdfs:subClassOf	clarify:BiomarkerResult;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:BiomarkerFISHResult rdf:type owl:Class;
+							rdfs:label	"BiomarkerFISHResult";
+							rdfs:subClassOf	clarify:BiomarkerResult;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:BiomarkerRNAResult  rdf:type owl:Class;
+							rdfs:label	"BiomarkerRNAResult";
+							rdfs:subClassOf	clarify:BiomarkerResult;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:T790NegativeResult  rdf:type owl:Class;
+							rdfs:label	"T790NegativeResult";
+							rdfs:subClassOf	clarify:BiomarkerResult;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:BiomarkerNegativeResult rdf:type owl:Class;
+								rdfs:label	"BiomarkerNegativeResult";
+								rdfs:subClassOf	clarify:BiomarkerResult;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:Exon21Result 	rdf:type owl:Class;
+						rdfs:label	"Exon21Result";
+						rdfs:subClassOf	clarify:BiomarkerResult;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:Exon19Result 	rdf:type owl:Class;
+						rdfs:label	"Exon19Result";
+						rdfs:subClassOf	clarify:BiomarkerResult;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:T790PositiveResult 	rdf:type owl:Class;
+							rdfs:label	"T790PositiveResult";
+							rdfs:subClassOf	clarify:BiomarkerResult;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:TreatmentLineCycle  rdf:type owl:Class;
+							rdfs:label	"TreatmentLineCycle";
+							rdfs:subClassOf	clarify:Concept;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:TreatmentLineNumber rdf:type owl:Class;
+							rdfs:label	"TreatmentLineNumber";
+							rdfs:subClassOf	clarify:Concept;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:Assessment 	rdf:type owl:Class;
+					rdfs:label	"Assessment";
+					rdfs:subClassOf	clarify:Concept;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:Procedure 	rdf:type owl:Class;
+					rdfs:label	"Procedure";
+					rdfs:subClassOf	clarify:Assessment;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:TrialType 	rdf:type owl:Class;
+					rdfs:label	"TrialType";
+					rdfs:subClassOf	clarify:Concept;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:TrialPhase 	rdf:type owl:Class;
+					rdfs:label	"TrialPhase";
+					rdfs:subClassOf	clarify:Concept;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:TumorSize 	rdf:type owl:Class;
+					rdfs:label	"TumorSize";
+					rdfs:subClassOf	clarify:Concept;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:PatientOccupation 	rdf:type owl:Class;
+							rdfs:label	"PatientOccupation";
+							rdfs:subClassOf	clarify:Concept;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:FamilyWithCancer 	rdf:type owl:Class;
+							rdfs:label	"FamilyWithCancer";
+							rdfs:subClassOf	clarify:Concept;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:FamilyType 	rdf:type owl:Class;
+					rdfs:label	"FamilyType";
+					rdfs:subClassOf	clarify:Concept;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:PlaceOfDeath 	rdf:type owl:Class;
+						rdfs:label	"PlaceOfDeath";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:CauseOfDeath 	rdf:type owl:Class;
+						rdfs:label	"CauseOfDeath";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:ReasonOfDeath 	rdf:type owl:Class;
+						rdfs:label	"ReasonOfDeath";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:CurrentStatus 	rdf:type owl:Class;
+						rdfs:label	"CurrentStatus";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:PatientCancerHistory 	rdf:type owl:Class;
+								rdfs:label	"PatientCancerHistory";
+								rdfs:subClassOf	clarify:Concept;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:Hospital 	rdf:type owl:Class;
+					rdfs:label	"Hospital";
+					rdfs:subClassOf	clarify:Concept;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:City 	rdf:type owl:Class;
+				rdfs:label	"City";
+				rdfs:subClassOf	clarify:Concept;
+				dcterms:modified "2021-02-25"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:Scale 	rdf:type owl:Class;
+				rdfs:label	"Scale";
+				rdfs:subClassOf	clarify:Assessment;
+				dcterms:modified "2021-02-25"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:PerformanceStatusObservation 	rdf:type owl:Class;
+										rdfs:label	"PerformanceStatusObservation";
+										rdfs:subClassOf	clarify:Observation;
+										dcterms:modified "2021-02-25"^^xsd:date;
+										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:ProgressionLocation	rdf:type	owl:Class;
+							rdfs:label	"ProgressionLocation";
+							rdfs:subClassOf	clarify:OccurrenceLocation;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:RadiotherapyIntention	rdf:type	owl:Class;
+								rdfs:label	"RadiotherapyIntention";
+								rdfs:subClassOf	clarify:Concept;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:RadiotherapyTreatmentLineType	rdf:type	owl:Class;
+										rdfs:label	"RadiotherapyTreatmentLineType";
+										rdfs:subClassOf	clarify:TreatmentLineType;
+										dcterms:modified "2021-02-25"^^xsd:date;
+										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:RadiotherapyLocation	rdf:type	owl:Class;
+								rdfs:label	"RadiotherapyLocation";
+								rdfs:subClassOf	clarify:OccurrenceLocation;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:ProgressionType	rdf:type	owl:Class;
+						rdfs:label	"ProgressionType";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:TherapyType	rdf:type	owl:Class;
+					rdfs:label	"TherapyType";
+					rdfs:subClassOf	clarify:Concept;
+					prv:File "relapse_progression.ttl";
+					dcterms:modified "2021-02-25"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:SmokerFamily	rdf:type	owl:Class;
+						rdfs:label	"SmokerFamily";
+						rdfs:subClassOf	clarify:Concept;
+						prv:File "smoker_information.ttl";
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:LymphNodesInvolvement	rdf:type	owl:Class;
+								rdfs:label	"LymphNodesInvolvement";
+								rdfs:subClassOf	clarify:Concept;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:PerioperativeDeath	rdf:type	owl:Class;
+							rdfs:label	"PerioperativeDeath";
+							rdfs:subClassOf	clarify:Concept;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:SurgeryResectionGrade	rdf:type	owl:Class;
+								rdfs:label	"SurgeryResectionGrade";
+								rdfs:subClassOf	clarify:Concept;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:SurgeryClass	rdf:type	owl:Class;
+						rdfs:label	"SurgeryClass";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:SurgerySubType	rdf:type	owl:Class;
+						rdfs:label	"SurgerySubType";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:MetastatisStage	rdf:type	owl:Class;
+						rdfs:label	"MetastatisStage";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:SurgeryPathologicalResponse	rdf:type	owl:Class;
+									rdfs:label	"SurgeryPathologicalResponse";
+									rdfs:subClassOf	clarify:Concept;
+									dcterms:modified "2021-02-25"^^xsd:date;
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:SynchronousTumor	rdf:type	owl:Class;
+							rdfs:label	"SynchronousTumor";
+							rdfs:subClassOf	clarify:Concept;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:TrialTarget	rdf:type	owl:Class;
+					rdfs:label	"TrialTarget";
+					rdfs:subClassOf	clarify:Concept;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:HistologyDegree	rdf:type	owl:Class;
+						rdfs:label	"HistologyDegree";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:AdenocarcinomaHistology	rdf:type	owl:Class;
+								rdfs:label	"AdenocarcinomaHistology";
+								rdfs:subClassOf	clarify:Concept;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:MesotheliomaType	rdf:type	owl:Class;
+							rdfs:label	"MesotheliomaType";
+							rdfs:subClassOf	clarify:Concept;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:CarcinomaType	rdf:type	owl:Class;
+						rdfs:label	"CarcinomaType";
+						rdfs:subClassOf	clarify:Concept;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:SmallCellCarcinomaType	rdf:type	owl:Class;
+								rdfs:label	"SmallCellCarcinomaType";
+								rdfs:subClassOf	clarify:Concept;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 ######################################################################################################################################
 #####################################################    Publication    ##############################################################
@@ -874,7 +1208,7 @@ clarify:DrugDrugInteraction	rdf:type	owl:Class;
 
 clarify:Interaction	rdf:type owl:Class;
 			rdfs:label	"Interaction";
-			rdfs:subClassOf	clarify:Concept;
+			rdfs:subClassOf	clarify:INTERACTS_WITH;
 			rdfs:comment "Interaction between drugs and disorder, enzyme, target.";
 			dcterms:modified "2021-01-07"^^xsd:date;
 			dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
@@ -1005,15 +1339,6 @@ clarify:description	rdf:type	owl:DatatypeProperty;
 								dcterms:modified "2020-10-21"^^xsd:date;							
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:city	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"city ";
-						rdfs:domain	clarify:LCPatient;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Represents the city of residence of the patient (structured information provided by HUPHM)";
-						dcterms:modified "2020-10-19"^^xsd:date;
-						prv:File "patient.ttl";
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 clarify:birthDate	rdf:type	owl:DatatypeProperty;
 						rdfs:label	"birthDate";
 						rdfs:domain	clarify:LCPatient;
@@ -1022,31 +1347,6 @@ clarify:birthDate	rdf:type	owl:DatatypeProperty;
 						dcterms:modified "2020-10-19"^^xsd:date;
 						prv:File "patient.ttl";
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.		
-
-clarify:hospitalID	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"hospitalID";
-						rdfs:domain	clarify:LCPatient;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Represents the ID of the hospital in which the patient is hopitaized.";
-						dcterms:modified "2020-10-19"^^xsd:date;
-						prv:File "patient.ttl";
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.											
-
-clarify:ehrID	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"ehrID";
-						rdfs:domain	clarify:Concept;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Represents the ID of the Electronic Health Record (EHR) to which the information is associated.";
-						dcterms:modified "2020-10-19"^^xsd:date;
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:recordID	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"recordID";
-						rdfs:domain	clarify:Concept;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Represents the UPM auto-generated numeric ID.";
-						dcterms:modified "2020-10-19"^^xsd:date;
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.						
 
 clarify:biomarkerObservationDate	rdf:type	owl:DatatypeProperty;
 						rdfs:label	"biomarkerObservationDate";
@@ -1057,47 +1357,6 @@ clarify:biomarkerObservationDate	rdf:type	owl:DatatypeProperty;
 						prv:File "mutation.ttl";
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.						
 
-clarify:biomarkerResult	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"biomarkerResult";
-							rdfs:domain	clarify:Biomarker;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Result of the reactive expression of the gene.";
-							dcterms:modified "2020-10-19"^^xsd:date;
-							prv:File "biomarker_mutation.ttl";
-							prv:File "pdl1_expression.ttl";
-							prv:File "ros1_mutation.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:biomarkerResult_FISH	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"biomarkerResult_FISH";
-								rdfs:domain	clarify:Biomarker;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Result of the FISH (Sanger sequencing plus Fluorescence In Situ Hybridization) test on targeted gene.";
-								dcterms:modified "2020-11-19"^^xsd:date;
-								prv:File "ALK_mutation.ttl";
-								prv:File "HER2_mutation.ttl";
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:biomarkerResult_IHQ	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"biomarkerResult_IHQ";
-							rdfs:domain	clarify:Biomarker;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Result of the IHQ test on targeted gene.";
-							dcterms:modified "2020-11-19"^^xsd:date;
-							prv:File "ALK_mutation.ttl";
-							prv:File "HER2_mutation.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:biomarkerResult_RNA	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"biomarkerResult_RNA";
-							rdfs:domain	clarify:Biomarker;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Result of the RNA-based test on targeted gene.";
-							dcterms:modified "2020-11-19"^^xsd:date;
-							prv:File "ALK_mutation.ttl";
-							prv:File "HER2_mutation.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 clarify:biomarkerSpecification	rdf:type	owl:DatatypeProperty;
 								rdfs:label	"biomarkerSpecification";
 								rdfs:domain	clarify:Biomarker;
@@ -1107,68 +1366,6 @@ clarify:biomarkerSpecification	rdf:type	owl:DatatypeProperty;
 								prv:File "egfr_mutation.ttl";
 								prv:File "pdl1_expression.ttl";
 								prv:File "ros1_mutation.ttl";
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:biomarkerNegativeResult	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"biomarkerNegativeResult";
-							rdfs:domain	clarify:Biomarker;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Negativity of the mutation.";
-							dcterms:modified "2020-10-19"^^xsd:date;
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:biomarkerResultPositivity	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"biomarkerResultPositivity";
-							rdfs:domain	clarify:Biomarker;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Positivity of the result.";
-							dcterms:modified "2020-10-19"^^xsd:date;
-							prv:File "pdl1_expression.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:biomarkerResultReason	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"biomarkerResultReason";
-								rdfs:domain	clarify:Biomarker;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Provided reason to the result.";
-								dcterms:modified "2020-10-19"^^xsd:date;
-								prv:File "pdl1_expression.ttl";
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:mutation_T790M_positive_result	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"mutation_T790M_positive_result";
-								rdfs:domain	clarify:Biomarker;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the mutation associated with positive T790M.";
-								dcterms:modified "2020-10-19"^^xsd:date;
-								prv:File "egfr_mutation.ttl";
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:mutation_T790M_negative_result	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"mutation_T790M_negative_result";
-								rdfs:domain	clarify:Biomarker;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the mutation associated with negative T790M.";
-								dcterms:modified "2020-10-19"^^xsd:date;
-								prv:File "egfr_mutation.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:mutation_exon19_result	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"mutation_exon19_result";
-								rdfs:domain	clarify:Biomarker;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the mutation associated with exon19.";
-								dcterms:modified "2020-10-19"^^xsd:date;
-								prv:File "egfr_mutation.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:mutation_exon21_result	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"mutation_exon21_result";
-								rdfs:domain	clarify:Biomarker;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the mutation associated with exon21.";
-								dcterms:modified "2020-10-19"^^xsd:date;
-								prv:File "egfr_mutation.ttl";								
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:mutation_NOS_result	rdf:type	owl:DatatypeProperty;
@@ -1189,15 +1386,6 @@ clarify:mutation_other_result	rdf:type	owl:DatatypeProperty;
 								prv:File "egfr_mutation.ttl";								
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
-clarify:occupation	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"occupation";
-								rdfs:domain	clarify:LCPatient;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the occupation of the patient.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "environmental_risk.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.																
-
 clarify:occupationDuration	rdf:type	owl:DatatypeProperty;
 								rdfs:label	"occupationDuration";
 								rdfs:domain	clarify:LCPatient;
@@ -1206,141 +1394,6 @@ clarify:occupationDuration	rdf:type	owl:DatatypeProperty;
 								dcterms:modified "2020-10-20"^^xsd:date;
 								prv:File "environmental_risk.ttl";								
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:mostProbable	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"mostProbable";
-								rdfs:domain	clarify:Carcinogen;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the the most probable carcinogen that the patient has been exposed to.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "environmental_risk.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:asbestos	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"asbestos";
-								rdfs:domain	clarify:Carcinogen;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents if the patient has been exposed to asbestos (a group of six naturally occurring minerals composed of soft, flexible fibers that are heat-resistant. Its use is allowed as long as it accounts for less than 1% of the product).";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "environmental_risk.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:arsenic	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"arsenic";
-								rdfs:domain	clarify:Carcinogen;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents if the patient has been exposed to arsenic.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "environmental_risk.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:radon	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"radon";
-								rdfs:domain	clarify:Carcinogen;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents if the patient has been exposed to radon.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "environmental_risk.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:silica	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"silica";
-								rdfs:domain	clarify:Carcinogen;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents if the patient has been exposed to silica.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "environmental_risk.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:dieselSmoke	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"dieselSmoke";
-								rdfs:domain	clarify:Carcinogen;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents if the patient has been exposed to diesel smoke.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "environmental_risk.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.																								
-
-clarify:asbestosExposure	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"asbestosExposure";
-							rdfs:domain	clarify:Carcinogen;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents if the patient has been exposed to asbestos.";
-							dcterms:modified "2020-11-17"^^xsd:date;
-							prv:File "environmental_risk.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:asbestosExposureType	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"asbestosExposureType";
-								rdfs:domain	clarify:Carcinogen;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents type of exposition to asbestos.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "environmental_risk.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.								
-
-clarify:progressionOrRelapse	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"progressionOrRelapse";
-								rdfs:domain	clarify:ProgressionRelapseObservation;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the value indicating if the progression or relapse is occurred.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "relapse_progression.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:progressionType	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"progressionType";
-								rdfs:domain	clarify:ProgressionRelapseObservation;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents type of progression that patient has experienced.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "relapse_progression.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:therapyType	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"therapyType";
-								rdfs:domain	clarify:ProgressionRelapseObservation;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the type of therapy that is prescribed to the patient (active or palliative care -pain relieving-).";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "relapse_progression.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:progressionLocation	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"progressionLocation";
-								rdfs:domain	clarify:CancerPatient;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the location of occurrence of the progression/ relapse.";
-								dcterms:modified "2020-11-16"^^xsd:date;
-								prv:File "progression_location.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:previousCancer	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"previousCancer";
-								rdfs:domain	clarify:PatientHistory;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the previous cancer from which the patient has suffered before.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "oncological_history.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:previousCancerType	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"previousCancerType";
-								rdfs:domain	clarify:PatientHistory;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the type of previous cancer from which the patient has suffered before.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "oncological_history.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:currentCancerType	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"currentCancerType";
-								rdfs:domain	clarify:CancerPatient;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the type of previous cancer from which the patient has suffered before.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "patient.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:numberOfFamilyWithLC	rdf:type	owl:DatatypeProperty;
 									rdfs:label	"numberOfFamilyWithLC";
@@ -1360,365 +1413,6 @@ clarify:numberOfFamilyWithOtherCancers	rdf:type	owl:DatatypeProperty;
 										prv:File "oncological_history.ttl";								
 										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:familyType	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"familyType";
-									rdfs:domain	clarify:FamilyHistory;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment "Represents the type of family kinship with the patient.";
-									dcterms:modified "2020-10-20"^^xsd:date;
-									prv:File "oncological_history.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:familyCancerType	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"familyCancerType";
-									rdfs:domain	clarify:FamilyHistory;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment "Represents the type of the cancer that the family member had/ has (1=Breast, 2=Head and neck, 3=Germinal tumors, 4=Sarcoma, 5=Central nervous system, 6=Unknown origin carcinoma, 7=Colorrectal, 8=Esophagogastric, 9=Pancreatic, 10=Gall bladder, 11=Liver, 2=Melanoma, 13=Skin no melanoma, 14=Bladder/urinary tract, 15=Renal, 16=Prostate, 17=Uterus/cervical, 18=Lymphoma, 19=Leukemia, 20=Lung, 22=Ovarian, 888=Others, -1=- ).";
-									dcterms:modified "2020-10-20"^^xsd:date;
-									prv:File "oncological_history.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_familyWithCancer	rdf:type	owl:DatatypeProperty;
-													rdfs:label	"existenceOf_familyWithCancer";
-													rdfs:domain	clarify:CancerPatient;
-													rdfs:range	rdfs:Literal;
-													rdfs:comment "";
-													dcterms:modified "2020-11-27"^^xsd:date;
-													prv:File "family_antecedents.ttl";								
-													dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_previousHistory	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"existenceOf_previousHistory";
-									rdfs:domain	clarify:CancerPatient;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment "";
-									dcterms:modified "2020-11-27"^^xsd:date;
-									prv:File "oncological_history.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:trialLabel	rdf:type	owl:DatatypeProperty;
-					rdfs:label	"trialLabel";
-					rdfs:domain	clarify:ClinicalTrial;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Represents the name of the clinical trial.";
-					dcterms:modified "2020-10-20"^^xsd:date;
-					prv:File "clinical_trial.ttl";								
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:trialIsObservational	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"trialIsObservational";
-								rdfs:domain	clarify:ClinicalTrial;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Indicates if the clinical trial is observational.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "clinical_trial.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:drugBasedTrial	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"drugBasedTrial";
-						rdfs:domain	clarify:ClinicalTrial;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the clinical trial is based on drugs.";
-						dcterms:modified "2020-10-20"^^xsd:date;
-						prv:File "clinical_trial.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:directedTrial	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"directedTrial";
-						rdfs:domain	clarify:ClinicalTrial;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the clinical trial is directed.";
-						dcterms:modified "2020-10-20"^^xsd:date;
-						prv:File "clinical_trial.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:trialPhase	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"trialPhase";
-						rdfs:domain	clarify:ClinicalTrial;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates the phase of the clinical trial.";
-						dcterms:modified "2020-10-20"^^xsd:date;
-						prv:File "clinical_trial.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:trialTargetLabel	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"trialTargetLabel";
-							rdfs:domain	clarify:ClinicalTrial;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Indicates the name of the target of the clinical trial.";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "targets_clinical_trial.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:diagnosticTumorSize	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"diagnosticTumorSize";
-							rdfs:domain	clarify:Diagnosis;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Indicates the size of the patient's tumor (T) at the diagnosis time.";
-							dcterms:modified "2020-11-16"^^xsd:date;
-							prv:File "diagnostic.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:tumorSize	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"tumorSize";
-							rdfs:domain	clarify:CancerStageTNM;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Indicates the size of the patient's tumor (T).";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "tnm_stadification.ttl";
-							prv:File "surgery.ttl";							
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:lymphNodesInvolvement	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"lymphNodesInvolvement";
-							rdfs:domain	clarify:CancerStageTNM;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Indicates if the lymph nodes are involved (N).";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "tnm_stadification.ttl";
-							prv:File "surgery.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:metastatisStage	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"metastatisStage";
-							rdfs:domain	clarify:CancerStageTNM;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Indicates that to what extend the cancer is metastasized (M).";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "tnm_stadification.ttl";
-							prv:File "surgery.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_extrathoracicLymphadenopathies	rdf:type	owl:DatatypeProperty;
-													rdfs:label	"existenceOf_extrathoracicLymphadenopathies";
-													rdfs:domain	clarify:MetastasisLocation;
-													rdfs:range	rdfs:Literal;
-													rdfs:comment ".";
-													dcterms:modified "2020-10-20"^^xsd:date;
-													prv:File "metastasis_location.ttl";								
-													dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_thoracicLymphadenopathy	rdf:type	owl:DatatypeProperty;
-											rdfs:label	"existenceOf_thoracicLymphadenopathy";
-											rdfs:domain	clarify:MetastasisLocation;
-											rdfs:range	rdfs:Literal;
-											rdfs:comment ".";
-											dcterms:modified "2020-10-20"^^xsd:date;
-											prv:File "metastasis_location.ttl";								
-											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_meningealCarcinomatosis	rdf:type	owl:DatatypeProperty;
-											rdfs:label	"existenceOf_meningealCarcinomatosis";
-											rdfs:domain	clarify:MetastasisLocation;
-											rdfs:range	rdfs:Literal;
-											rdfs:comment ".";
-											dcterms:modified "2020-10-20"^^xsd:date;
-											prv:File "metastasis_location.ttl";								
-											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_pericardialEffusion	rdf:type	owl:DatatypeProperty;
-										rdfs:label	"existenceOf_pericardialEffusion";
-										rdfs:domain	clarify:MetastasisLocation;
-										rdfs:range	rdfs:Literal;
-										rdfs:comment ".";
-										dcterms:modified "2020-10-20"^^xsd:date;
-										prv:File "metastasis_location.ttl";								
-										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_pleuralEffusion	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"existenceOf_pleuralEffusion";
-									rdfs:domain	clarify:MetastasisLocation;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment ".";
-									dcterms:modified "2020-10-20"^^xsd:date;
-									prv:File "metastasis_location.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_liverMetastasis	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"existenceOf_liverMetastasis";
-									rdfs:domain	clarify:MetastasisLocation;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment ".";
-									dcterms:modified "2020-10-20"^^xsd:date;
-									prv:File "metastasis_location.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_boneMetastasis	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"existenceOf_boneMetastasis";
-									rdfs:domain	clarify:MetastasisLocation;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment ".";
-									dcterms:modified "2020-10-20"^^xsd:date;
-									prv:File "metastasis_location.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_bilateralLymphangitis	rdf:type	owl:DatatypeProperty;
-											rdfs:label	"existenceOf_bilateralLymphangitis";
-											rdfs:domain	clarify:MetastasisLocation;
-											rdfs:range	rdfs:Literal;
-											rdfs:comment ".";
-											dcterms:modified "2020-10-20"^^xsd:date;
-											prv:File "metastasis_location.ttl";								
-											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.													
-
-clarify:existenceOf_pleuralNodules	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"existenceOf_pleuralNodules";
-									rdfs:domain	clarify:MetastasisLocation;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment ".";
-									dcterms:modified "2020-10-20"^^xsd:date;
-									prv:File "metastasis_location.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_pancreasMetastasis	rdf:type	owl:DatatypeProperty;
-										rdfs:label	"existenceOf_pancreasMetastasis";
-										rdfs:domain	clarify:MetastasisLocation;
-										rdfs:range	rdfs:Literal;
-										rdfs:comment ".";
-										dcterms:modified "2020-10-20"^^xsd:date;
-										prv:File "metastasis_location.ttl";								
-										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_peritoneumMetastasis	rdf:type	owl:DatatypeProperty;
-											rdfs:label	"existenceOf_peritoneumMetastasis";
-											rdfs:domain	clarify:MetastasisLocation;
-											rdfs:range	rdfs:Literal;
-											rdfs:comment "The peritoneum is the serous membrane forming the lining of the abdominal cavity or coelom in amniotes and some invertebrates, such as annelids. It covers most of the intra-abdominal (or coelomic) organs, and is composed of a layer of mesothelium supported by a thin layer of connective tissue.";
-											dcterms:modified "2020-10-20"^^xsd:date;
-											prv:File "metastasis_location.ttl";								
-											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_lungMetastasis	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"existenceOf_lungMetastasis";
-									rdfs:domain	clarify:MetastasisLocation;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment ".";
-									dcterms:modified "2020-10-20"^^xsd:date;
-									prv:File "metastasis_location.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_centralNervousSystemMetastasis	rdf:type	owl:DatatypeProperty;
-													rdfs:label	"existenceOf_centralNervousSystemMetastasis";
-													rdfs:domain	clarify:MetastasisLocation;
-													rdfs:range	rdfs:Literal;
-													rdfs:comment ".";
-													dcterms:modified "2020-10-20"^^xsd:date;
-													prv:File "metastasis_location.ttl";								
-													dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:existenceOf_subcutaneousMetastasis	rdf:type	owl:DatatypeProperty;
-											rdfs:label	"existenceOf_subcutaneousMetastasis";
-											rdfs:domain	clarify:MetastasisLocation;
-											rdfs:range	rdfs:Literal;
-											rdfs:comment "Subcutaneous refers to what is situated or applied under the skin.";
-											dcterms:modified "2020-10-20"^^xsd:date;
-											prv:File "metastasis_location.ttl";								
-											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.																																							
-
-clarify:existenceOf_adrenalMetastasis	rdf:type	owl:DatatypeProperty;
-											rdfs:label	"existenceOf_adrenalMetastasis";
-											rdfs:domain	clarify:MetastasisLocation;
-											rdfs:range	rdfs:Literal;
-											rdfs:comment ".";
-											dcterms:modified "2020-10-20"^^xsd:date;
-											prv:File "metastasis_location.ttl";								
-											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:existenceOf_softTissuesMetastasis	rdf:type	owl:DatatypeProperty;
-											rdfs:label	"existenceOf_softTissuesMetastasis";
-											rdfs:domain	clarify:MetastasisLocation;
-											rdfs:range	rdfs:Literal;
-											rdfs:comment ".";
-											dcterms:modified "2020-10-20"^^xsd:date;
-											prv:File "metastasis_location.ttl";								
-											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.												
-
-clarify:existenceOf_otherMetastasis	rdf:type	owl:DatatypeProperty;
-											rdfs:label	"existenceOf_otherMetastasis";
-											rdfs:domain	clarify:MetastasisLocation;
-											rdfs:range	rdfs:Literal;
-											rdfs:comment ".";
-											dcterms:modified "2020-10-20"^^xsd:date;
-											prv:File "metastasis_location.ttl";								
-											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.		
-
-clarify:diagnosisTechnique	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"diagnosisTechnique";
-							rdfs:domain	clarify:Diagnosis;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Indicates the diagnosis technique that is used.";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "diagnostic.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:stagingSystemTechnique	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"stagingSystemTechnique";
-								rdfs:domain	clarify:Diagnosis;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Indicates the technique that is applied for staging diagnosis.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "diagnostic.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:treatmentLineBestResponse	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"treatementLineBestResponse";
-									rdfs:domain	clarify:OncologicalTreatmentLine;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment "Represents the best response of the patient to the treatment line.";
-									dcterms:modified "2020-11-19"^^xsd:date;
-									prv:File "chemotherapy_treatment_line.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:treatmentLineStartDate	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"treatementLineStartDate";
-							rdfs:domain	clarify:OncologicalTreatmentLine;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the starting date of the treatment line.";
-							dcterms:modified "2020-11-17"^^xsd:date;
-							prv:File "chemotherapy_treatment_line.ttl";
-							prv:File "radiotherapy_treatment_line.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:treatmentLineEndingDate	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"treatementLineEndingDate";
-								rdfs:domain	clarify:OncologicalTreatmentLine;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the ending date of the treatment line.";
-								dcterms:modified "2020-11-17"^^xsd:date;
-								prv:File "chemotherapy_treatment_line.ttl";	
-								prv:File "radiotherapy_treatment_line.ttl";							
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:treatmentLineNumber	rdf:type     owl:DatatypeProperty;
-							rdfs:label	"treatmentLineNumber";
-							rdfs:domain	clarify:OncologicalTreatmentLine;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "The number representing the oncological line of treatment.";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "chemotherapy_treatment_line.ttl";								
-							prv:File "radiotherapy_treatment_line.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:treatmentLineType	rdf:type     owl:DatatypeProperty;
-							rdfs:label	"treatmentLineType";
-							rdfs:domain	clarify:OncologicalTreatmentLine;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents type of the treatment line (1=QT intravenous, 2=Oral targeted therapy, 3=Neoadjuvant chemotherapy, 4=Adjuvant chemotherapy, 6=Concomitant QT-RT, 7=Sequential QT-RT, 8=Adjuvant QT-RT, 9=Neoadjuvant QT-RT, 10=Immunotherapy, 12=Hormonal, 13=Oral and intravenous chemotherapy, 14=Oral chemotherapy, 15=Intravenous chemotherapy + immunotherapy, 11=Others, -1=- ).";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "chemotherapy_treatment_line.ttl";								
-							prv:File "radiotherapy_treatment_line.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:treatmentLineCycle	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"treatmentLineCycle";
-							rdfs:domain	clarify:OncologicalTreatmentLine;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the number of cycles through which the corresponding drugs have been applied.";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "chemotherapy_drugs.ttl";	
-							prv:File "radiotherapy_drugs.ttl";															
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 clarify:treatmentLineDosage	rdf:type	owl:DatatypeProperty;
 							rdfs:label	"treatmentLineDosage";
 							rdfs:domain	clarify:OncologicalTreatmentLine;
@@ -1737,267 +1431,6 @@ clarify:treatmentLineFractioning	rdf:type	owl:DatatypeProperty;
 									prv:File "radiotherapy_drugs.ttl";															
 									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:treatmentLineMaintenance	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"treatmentLineMaintenance";
-									rdfs:domain	clarify:OncologicalTreatmentLine;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment "Represents the type of drugs that are prescribed for the maintenance.";
-									dcterms:modified "2020-11-19"^^xsd:date;
-									prv:File "chemotherapy_drugs.ttl";															
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:radiotherapyArea	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"radiotherapyArea";
-							rdfs:domain	clarify:RadiotherapyTreatmentLine;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the area that is radiated during the radiotherapy.";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "radiotherapy_treatment_line.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:radiotherapyType	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"radiotherapyType";
-							rdfs:domain	clarify:RadiotherapyTreatmentLine;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the type of radiotherapy.";
-							dcterms:modified "2020-11-19"^^xsd:date;
-							prv:File "radiotherapy_treatment_line.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:radiotherapyIntention	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"radiotherapyIntention";
-								rdfs:domain	clarify:RadiotherapyTreatmentLine;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the purpose(!) of performing radiotherapy.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "radiotherapy_treatment_line.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.							
-
-clarify:surgeryLabel	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"surgeryLabel";
-							rdfs:domain	clarify:OncologicalSurgery;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the name of the surgery.";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "surgery.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:surgeryClass	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"surgeryClass";
-							rdfs:domain	clarify:OncologicalSurgery;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the type of the surgery.";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "surgery.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:surgerySubType	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"surgerySubType";
-							rdfs:domain	clarify:OncologicalSurgery;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the subtype of the surgery.";
-							dcterms:modified "2020-10-20"^^xsd:date;
-							prv:File "surgery.ttl";								
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:surgeryPathologicalResponse	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"surgeryPathologicalResponse";
-									rdfs:domain	clarify:OncologicalSurgery;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment "Represents the type of pathological response to the surgery that the patient experienced.";
-									dcterms:modified "2020-11-19"^^xsd:date;
-									prv:File "surgery.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:surgeryResectionGrade	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"surgeryResectionGrade";
-								rdfs:domain	clarify:OncologicalSurgery;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Indicates the degree of the resection that is applied during the surgery.";
-								dcterms:modified "2020-11-19"^^xsd:date;
-								prv:File "surgery.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:surgeryPerioperativeDeath	rdf:type	owl:DatatypeProperty;
-									rdfs:label	"surgeryPerioperativeDeath";
-									rdfs:domain	clarify:OncologicalSurgery;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment "Represents if the perioperative death has took place during or after the surgery.";
-									dcterms:modified "2020-11-19"^^xsd:date;
-									prv:File "surgery.ttl";								
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:fullBloodCount	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"fullBloodCount";
-						rdfs:domain	clarify:ClinicalStageClassification;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the stage classification technique (pTNM) used is FBC (The full blood count, a blood test that may play a role in early detection of the disease).";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "clinical_stadification_techniques.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:gammaScan	rdf:type	owl:DatatypeProperty;
-					rdfs:label	"gammaScan";
-					rdfs:domain	clarify:ClinicalStageClassification;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Indicates if the stage classification technique (pTNM) used is gamma scan.";
-					dcterms:modified "2020-10-21"^^xsd:date;
-					prv:File "clinical_stadification_techniques.ttl";								
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:mediastinoscopy	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"mediastinoscopy";
-						rdfs:domain	clarify:StageClassification;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the stage classification technique (pTNM) used is mediastinoscopy (a procedure used to examine the mediastinum. This is the space behind the breastbone (sternum) in the middle of the chest, between the 2 lungs. It contains: Lymph nodes. The heart and its great vessels).";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "clinical_stadification_techniques.ttl";
-						prv:File "pathological_stadification_techniques.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:mediastinotomy	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"mediastinotomy";
-						rdfs:domain	clarify:ClinicalStageClassification;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the stage classification technique (pTNM) used is mediastinotomy (a surgical procedure opening of the mediastinum).";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "clinical_stadification_techniques.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:thoracicRX	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"thoracicRX";
-						rdfs:domain	clarify:ClinicalStageClassification;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the stage classification technique (pTNM) used is thoracicRX.";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "clinical_stadification_techniques.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:brainMRI	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"brainMRI";
-						rdfs:domain	clarify:ClinicalStageClassification;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the stage classification technique (pTNM) used is brain MRI.";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "clinical_stadification_techniques.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:mri	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"mri";
-						rdfs:domain	clarify:ClinicalStageClassification;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the stage classification technique (pTNM) used is MRI.";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "clinical_stadification_techniques.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:thoracoscopy	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"thoracoscopy";
-						rdfs:domain	clarify:StageClassification;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the stage classification technique (pTNM) used is thoracoscopy (a visual examination of the lung surfaces and pleural space through a viewing tube (a thoracoscope)).";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "clinical_stadification_techniques.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:thoracotomy	rdf:type	owl:DatatypeProperty;
-					rdfs:label	"thoracotomy";
-					rdfs:domain	clarify:StageClassification;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment ".";
-					dcterms:modified "2020-11-17"^^xsd:date;
-					prv:File "clinical_stadification_techniques.ttl";								
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:brainCT	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"brainCT";
-						rdfs:domain	clarify:ClinicalStageClassification;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the stage classification technique (pTNM) used is brain CT.";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "clinical_stadification_techniques.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:petTAC	rdf:type	owl:DatatypeProperty;
-						rdfs:label	"petTAC";
-						rdfs:domain	clarify:ClinicalStageClassification;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Indicates if the stage classification technique (pTNM) used is pet TAC.";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "clinical_stadification_techniques.ttl";								
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:biopsy	rdf:type	owl:DatatypeProperty;
-				rdfs:label	"biopsy";
-				rdfs:domain	clarify:PathologicalStageClassification;
-				rdfs:range	rdfs:Literal;
-				rdfs:comment "Indicates if the stage classification detection technique (pTNM) used is biopsy.";
-				dcterms:modified "2020-10-21"^^xsd:date;
-				prv:File "pathological_stadification_techniques.ttl";								
-				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:broncoscopy	rdf:type	owl:DatatypeProperty;
-					rdfs:label	"broncoscopy";
-					rdfs:domain	clarify:PathologicalStageClassification;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Indicates if the stage classification detection technique (pTNM) used is broncoscopy.";
-					dcterms:modified "2020-10-21"^^xsd:date;
-					prv:File "pathological_stadification_techniques.ttl";								
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:ebus	rdf:type	owl:DatatypeProperty;
-					rdfs:label	"ebus";
-					rdfs:domain	clarify:PathologicalStageClassification;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Indicates if the stage classification detection technique (pTNM) used is EBUS (endoluminal ultrasound).";
-					dcterms:modified "2020-10-21"^^xsd:date;
-					prv:File "pathological_stadification_techniques.ttl";								
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-clarify:laparoscopy	rdf:type	owl:DatatypeProperty;
-					rdfs:label	"laparoscopy";
-					rdfs:domain	clarify:PathologicalStageClassification;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Indicates if the stage classification detection technique (pTNM) used is laparoscopy.";
-					dcterms:modified "2020-10-21"^^xsd:date;
-					prv:File "pathological_stadification_techniques.ttl";								
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:fineNeedleAspiration	rdf:type	owl:DatatypeProperty;
-					rdfs:label	"fineNeedleAspiration";
-					rdfs:domain	clarify:PathologicalStageClassification;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment ".";
-					dcterms:modified "2020-11-17"^^xsd:date;
-					prv:File "pathological_stadification_techniques.ttl";								
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:transthoracicPuncture	rdf:type	owl:DatatypeProperty;
-					rdfs:label	"transthoracicPuncture";
-					rdfs:domain	clarify:PathologicalStageClassification;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Indicates if the stage classification detection technique (pTNM) used is transthoracic puncture.";
-					dcterms:modified "2020-10-21"^^xsd:date;
-					prv:File "pathological_stadification_techniques.ttl";								
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:transthoracicVats	rdf:type	owl:DatatypeProperty;
-					rdfs:label	"transthoracicVats";
-					rdfs:domain	clarify:PathologicalStageClassification;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment ".";
-					dcterms:modified "2020-11-17"^^xsd:date;
-					prv:File "pathological_stadification_techniques.ttl";								
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:bloodSample	rdf:type	owl:DatatypeProperty;
-					rdfs:label	"bloodSample";
-					rdfs:domain	clarify:PathologicalStageClassification;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Indicates if the stage classification detection technique (pTNM) used is blood sample.";
-					dcterms:modified "2020-10-21"^^xsd:date;
-					prv:File "pathological_stadification_techniques.ttl";								
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 clarify:disorderLabel	rdf:type owl:DatatypeProperty;
 							rdfs:label "disorderLabel";
 							rdfs:domain clarify:Disorder;
@@ -2006,15 +1439,6 @@ clarify:disorderLabel	rdf:type owl:DatatypeProperty;
 							dcterms:modified "2020-10-21"^^xsd:date;
 							prv:File "comorbidity.ttl";
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:patientCurrentStatus	rdf:type	owl:DatatypeProperty;
-								rdfs:label	"patientCurrentStatus";
-								rdfs:domain	clarify:StatusEvolution;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Current status of Lung Cancer patient";
-								dcterms:modified "2020-10-21"^^xsd:date;
-								prv:File "monitoring.ttl";
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
 clarify:lastMonitoringDate	rdf:type owl:DatatypeProperty;
 							rdfs:label "lastMonitoringDate";
@@ -2034,24 +1458,6 @@ clarify:deathDate	rdf:type	owl:DatatypeProperty;
 					prv:File "monitoring.ttl";
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:causeOfDeath	rdf:type	owl:DatatypeProperty;
-							rdfs:label	"causeOfDeath";
-							rdfs:domain	clarify:StatusEvolution;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Indicates the lung cancer patient's cause of death.";
-							dcterms:modified "2020-10-21"^^xsd:date;
-							prv:File "monitoring.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:placeOfDeath	rdf:type        owl:DatatypeProperty;	
-									rdfs:label	"placeOfDeath";
-									rdfs:domain	clarify:StatusEvolution;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment "The place where the patient died.";
-									dcterms:modified "2020-10-21"^^xsd:date;
-									prv:File "monitoring.ttl";
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 clarify:secondNeoplasm	rdf:type        owl:DatatypeProperty;	
 						rdfs:label	"placeOfDeath";
 						rdfs:domain	clarify:StatusEvolution;
@@ -2060,78 +1466,6 @@ clarify:secondNeoplasm	rdf:type        owl:DatatypeProperty;
 						dcterms:modified "2020-10-21"^^xsd:date;
 						prv:File "monitoring.ttl";
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:histology	rdf:type        owl:DatatypeProperty;	
-								rdfs:label	"histology";
-								rdfs:domain	clarify:TumorType;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents type of histology of the cancer experienced by the patient (if any).";
-								dcterms:modified "2020-12-10"^^xsd:date;
-								prv:File "tumor_histology.ttl";
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:adenocarcinomaHistology	rdf:type        owl:DatatypeProperty;	
-								rdfs:label	"adenocarcinomaHistology";
-								rdfs:domain	clarify:TumorType;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents type of adenocarcinoma (originally developement of the cancer in an organ or gland) experienced by the patient (if any).";
-								dcterms:modified "2020-10-21"^^xsd:date;
-								prv:File "tumor_histology.ttl";
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:smallCellCarcinomaType	rdf:type        owl:DatatypeProperty;	
-								rdfs:label	"smallCellCarcinomaType";
-								rdfs:domain	clarify:TumorType;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the type of small cell carcinoma that patient is experienced (if any).";
-								dcterms:modified "2020-10-21"^^xsd:date;
-								prv:File "tumor_histology.ttl";
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:carcinomaType	rdf:type        owl:DatatypeProperty;	
-						rdfs:label	"carcinomaType";
-						rdfs:domain	clarify:TumorType;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Represents the type of carcinoma that the patient is experienced.";
-						dcterms:modified "2020-11-17"^^xsd:date;
-						prv:File "tumor_histology.ttl";
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:mesotheliomaType	rdf:type        owl:DatatypeProperty;	
-							rdfs:label	"mesotheliomaType";
-							rdfs:domain	clarify:TumorType;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the type of small cell mesothelioma (a malignant tumor that is caused by inhaled asbestos fibers and forms in the lining of the lungs, abdomen or heart) that patient is experienced (if any).";
-							dcterms:modified "2020-10-21"^^xsd:date;
-							prv:File "tumor_histology.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:histologyDegree	rdf:type        owl:DatatypeProperty;	
-							rdfs:label	"histologyDegree";
-							rdfs:domain	clarify:TumorType;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the histology degree.";
-							dcterms:modified "2020-10-21"^^xsd:date;
-							prv:File "tumor_histology.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:performanceStatusValue	rdf:type        owl:DatatypeProperty;	
-								rdfs:label	"performanceStatusValue";
-								rdfs:domain	clarify:PerformanceStatus;
-								rdfs:range	rdfs:Literal;
-								rdfs:comment "Represents the evaluated value of the performance status of the patient in certain date.";
-								dcterms:modified "2020-10-21"^^xsd:date;
-								prv:File "performance_status.ttl";
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:performanceStatusScale	rdf:type        owl:DatatypeProperty;	
-							rdfs:label	"performanceStatusScale";
-							rdfs:domain	clarify:PerformanceStatus;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the scale that is applied in patient performance status evaluation.";
-							dcterms:modified "2020-10-21"^^xsd:date;
-							prv:File "performance_status.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:numberOfCigarettesPerDay	rdf:type	owl:DatatypeProperty;	
 									rdfs:label	"numberOfCigarettesPerDay";
@@ -2241,214 +1575,6 @@ clarify:rollingTobaccoSmokingStopingDate	rdf:type        owl:DatatypeProperty;
 											prv:File "smoker_information.ttl";
 											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:livingWithSmoker	rdf:type        owl:DatatypeProperty;	
-										rdfs:label	"livingWithSmoker";
-										rdfs:domain	clarify:SmokingHistory;
-										rdfs:range	rdfs:Literal;
-										rdfs:comment "Represents if the patient lives with smokers.";
-										dcterms:modified "2020-10-21"^^xsd:date;
-										prv:File "smoker_information.ttl";
-										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:livedWithSmoker	rdf:type        owl:DatatypeProperty;	
-										rdfs:label	"livedWithSmoker";
-										rdfs:domain	clarify:SmokingHistory;
-										rdfs:range	rdfs:Literal;
-										rdfs:comment "Represents if the patient used to live with smokers.";
-										dcterms:modified "2020-10-21"^^xsd:date;
-										prv:File "smoker_information.ttl";
-										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:numberOfPregnencies	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"numberOfPregnencies";
-							rdfs:domain	clarify:ReproductionHistory;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the number of pregnencies that the patient has had.";
-							dcterms:modified "2020-10-21"^^xsd:date;
-							prv:File "reproductie_information.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:numberOfSuccessfulPregnencies	rdf:type owl:DatatypeProperty;	
-										rdfs:label	"numberOfSuccessfulPregnencies";
-										rdfs:domain	clarify:ReproductionHistory;
-										rdfs:range	rdfs:Literal;
-										rdfs:comment "Represents the number of pregnencies that the patient has had.";
-										dcterms:modified "2020-10-21"^^xsd:date;
-										prv:File "reproductie_information.ttl";
-										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:ageOfMenstruation 	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"ageOfMenstruation";
-							rdfs:domain	clarify:ReproductionHistory;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents the age at which the patient began to menstruate.";
-							dcterms:modified "2020-10-21"^^xsd:date;
-							prv:File "reproductie_information.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:menopause 	rdf:type owl:DatatypeProperty;	
-						rdfs:label	"menopause";
-						rdfs:domain	clarify:ReproductionHistory;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Represents if the patient has experienced menopause.";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "reproductie_information.ttl";
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:ageOfMenopause 	rdf:type owl:DatatypeProperty;	
-						rdfs:label	"ageOfMenopause";
-						rdfs:domain	clarify:ReproductionHistory;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Represents the age at which the menstruate happend.";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						prv:File "reproductie_information.ttl";
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:contraceptivePill 	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"contraceptivePill";
-							rdfs:domain	clarify:ReproductionHistory;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Indicates if the patient takes a contraceptive pill.";
-							dcterms:modified "2020-10-21"^^xsd:date;
-							prv:File "reproductie_information.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:contraceptivePillStoppingDate 	rdf:type owl:DatatypeProperty;	
-										rdfs:label	"contraceptivePillStoppingDate";
-										rdfs:domain	clarify:ReproductionHistory;
-										rdfs:range	rdfs:Literal;
-										rdfs:comment "Represents the date on which the patient stopped taking contraceptive pills (if it was the case).";
-										dcterms:modified "2020-10-21"^^xsd:date;
-										prv:File "reproductie_information.ttl";
-										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:fever 	rdf:type owl:DatatypeProperty;	
-				rdfs:label	"fever";
-				rdfs:domain	clarify:Prediagnosis;
-				rdfs:range	rdfs:Literal;
-				rdfs:comment "Represents if the patient experienced fever prior to the diagnosis.";
-				dcterms:modified "2020-10-23"^^xsd:date;
-				prv:File "Prediagnosis_symptoms.ttl";
-				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:weightLoss 	rdf:type owl:DatatypeProperty;	
-					rdfs:label	"weightLoss";
-					rdfs:domain	clarify:Observation;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Represents if the patient experienced weight loss prior to the diagnosis (1=yes, 0=no, -1=unknown).";
-					dcterms:modified "2020-10-23"^^xsd:date;
-					prv:File "Prediagnosis_symptoms.ttl";
-					prv:File "First_consultation_pre_oncology.ttl";
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:sleepingDifficulty 	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"sleepingDifficulty";
-							rdfs:domain	clarify:Prediagnosis;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents if the patient experienced sleeping difficulty prior to the diagnosis.";
-							dcterms:modified "2020-10-23"^^xsd:date;
-							prv:File "Prediagnosis_symptoms.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:leucocytesCount 	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"leucocytesCount";
-							rdfs:domain	clarify:Hemogram;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents a type of White Blood Cell count (WBC).";
-							dcterms:modified "2020-10-23"^^xsd:date;
-							prv:File "Hemogram.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:lymphocytesCount 	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"lymphocytesCount";
-							rdfs:domain	clarify:Hemogram;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents a type of White Blood Cell count (WBC).";
-							dcterms:modified "2020-10-23"^^xsd:date;
-							prv:File "Hemogram.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:redBloodCellCount 	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"redBloodCellCount";
-							rdfs:domain	clarify:Hemogram;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents Red Blood Cell count (RBC).";
-							dcterms:modified "2020-10-23"^^xsd:date;
-							prv:File "Hemogram.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:synchronousTumor 	rdf:type owl:DatatypeProperty;	
-							rdfs:label	"synchronousTumor";
-							rdfs:domain	clarify:CancerPatient;
-							rdfs:range	rdfs:Literal;
-							rdfs:comment "Represents if a synchronous tumor is also discovered.";
-							dcterms:modified "2020-10-23"^^xsd:date;
-							prv:File "Synchronous_tumor.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:asymptomatic 	rdf:type owl:DatatypeProperty;	
-						rdfs:label	"asymptomatic";
-						rdfs:domain	clarify:NonOncologicalConsultation;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Represents if the patient was asymptomatic.";
-						dcterms:modified "2020-10-23"^^xsd:date;
-						prv:File "First_consultation_pre_oncology.ttl";
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:cough 	rdf:type owl:DatatypeProperty;	
-				rdfs:label	"cough";
-				rdfs:domain	clarify:NonOncologicalConsultation;
-				rdfs:range	rdfs:Literal;
-				rdfs:comment "Represents if the patient had cough.";
-				dcterms:modified "2020-10-23"^^xsd:date;
-				prv:File "First_consultation_pre_oncology.ttl";
-				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:pain 	rdf:type owl:DatatypeProperty;	
-				rdfs:label	"pain";
-				rdfs:domain	clarify:NonOncologicalConsultation;
-				rdfs:range	rdfs:Literal;
-				rdfs:comment "Represents if the patient had any pain.";
-				dcterms:modified "2020-10-23"^^xsd:date;
-				prv:File "First_consultation_pre_oncology.ttl";
-				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:dyspnoea 	rdf:type owl:DatatypeProperty;	
-					rdfs:label	"dyspnoea";
-					rdfs:domain	clarify:NonOncologicalConsultation;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Represents if the patient experienced dyspnoea (difficulty in breathing.).";
-					dcterms:modified "2020-10-23"^^xsd:date;
-					prv:File "First_consultation_pre_oncology.ttl";
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.														
-
-clarify:hemoptysis 	rdf:type owl:DatatypeProperty;	
-					rdfs:label	"hemoptysis";
-					rdfs:domain	clarify:NonOncologicalConsultation;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Represents if the patient experienced hemoptysis (coughing up of blood or blood-stained mucus from the bronchi, larynx, trachea, or lungs).";
-					dcterms:modified "2020-10-23"^^xsd:date;
-					prv:File "First_consultation_pre_oncology.ttl";
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:asthenia 	rdf:type owl:DatatypeProperty;	
-					rdfs:label	"asthenia";
-					rdfs:domain	clarify:NonOncologicalConsultation;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Represents if the patient experienced asthenia (abnormal physical weakness or lack of energy).";
-					dcterms:modified "2020-10-23"^^xsd:date;
-					prv:File "First_consultation_pre_oncology.ttl";
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:anorexia 	rdf:type owl:DatatypeProperty;	
-					rdfs:label	"anorexia";
-					rdfs:domain	clarify:NonOncologicalConsultation;
-					rdfs:range	rdfs:Literal;
-					rdfs:comment "Represents if the patient experienced anorexia (eating disorder).";
-					dcterms:modified "2020-10-23"^^xsd:date;
-					prv:File "First_consultation_pre_oncology.ttl";
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.														
-
 clarify:comment 	rdf:type owl:DatatypeProperty;	
 					rdfs:label	"comment";
 					rdfs:domain	clarify:CancerPatient;
@@ -2457,6 +1583,24 @@ clarify:comment 	rdf:type owl:DatatypeProperty;
 					dcterms:modified "2020-10-23"^^xsd:date;
 					prv:File "Comments.ttl";
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.		
+
+clarify:treatementLineEndingDate	rdf:type owl:DatatypeProperty;	
+									rdfs:label	"treatementLineEndingDate";
+									rdfs:domain	clarify:ChemotherapyTreatmentLine;
+									rdfs:range	rdfs:Literal;
+									dcterms:modified "2021-02-25"^^xsd:date;
+									prv:File "chemotherapy_treatment_line.ttl";
+									prv:File "radiotherapy_treatment_line.ttl";
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:treatementLineStartDate	rdf:type owl:DatatypeProperty;	
+								rdfs:label	"treatementLineStartDate";
+								rdfs:domain	clarify:ChemotherapyTreatmentLine;
+								rdfs:range	rdfs:Literal;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "chemotherapy_treatment_line.ttl";
+								prv:File "radiotherapy_treatment_line.ttl";
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 
 ######################################################################################################################################
@@ -2740,15 +1884,6 @@ clarify:methodAbbreviation	rdf:type	owl:DatatypeProperty;
 ##########################################################    SLCG    ################################################################
 ######################################################################################################################################
 
-
-clarify:provenance	rdf:type	owl:ObjectProperty;
-					rdfs:label	"provenance";
-					rdfs:domain	clarify:Concept;
-					rdfs:range	clarify:SourceName;
-					rdfs:comment	"The name of the source from which the concept is extracted or derived";
-					dcterms:modified "2020-10-19"^^xsd:date;
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 clarify:hasCUIAnnotation	rdf:type owl:ObjectProperty;
 							rdfs:label	"hasCUIAnnotation";
 							rdfs:domain clarify:Concept;
@@ -2795,15 +1930,6 @@ clarify:hasBiomarker	rdf:type	owl:ObjectProperty;
 						prv:File "biomarker_mutation.ttl";						
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.						
 
-clarify:exposed_to	rdf:type	owl:ObjectProperty;
-								rdfs:label	"exposed_to";
-								rdfs:domain	clarify:CancerPatient;
-								rdfs:range	clarify:Carcinogen;
-								rdfs:comment "Relation between the cancer patient and exposed carcinogen.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "environmental_risk.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.		
-
 clarify:involved_in	rdf:type	owl:ObjectProperty;
 								rdfs:label	"involved_in";
 								rdfs:domain	clarify:CancerPatient;
@@ -2825,20 +1951,11 @@ clarify:hasStageTNM	rdf:type	owl:ObjectProperty;
 clarify:hasDiagnosisStage	rdf:type	owl:ObjectProperty;
 								rdfs:label	"hasDiagnosisStage";
 								rdfs:domain	clarify:Diagnosis;
-								rdfs:range	clarify:CancerStageCoded;
+								rdfs:range	clarify:CancerStage;
 								rdfs:comment "Relation between the diagnosis observation and the coded cancer stage (at the diagnosis time).";
 								dcterms:modified "2020-12-10"^^xsd:date;
 								prv:File "diagnosis.ttl";								
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:metastasized_to	rdf:type	owl:ObjectProperty;
-								rdfs:label	"metastasized_to";
-								rdfs:domain	clarify:CancerStageTNM;
-								rdfs:range	clarify:MetastasisLocation;
-								rdfs:comment "Relation between the cancer patient and the metastasis location.";
-								dcterms:modified "2020-10-20"^^xsd:date;
-								prv:File "metastasis_location.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.		
 
 clarify:hasDiagnosis	rdf:type     owl:ObjectProperty;
 						rdfs:label	"hasDiagnosis";
@@ -2848,14 +1965,6 @@ clarify:hasDiagnosis	rdf:type     owl:ObjectProperty;
 						dcterms:modified "2020-10-20"^^xsd:date;
 						prv:File "diagnostic.ttl";
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.			
-
-clarify:hasOncologicalTreatmentLine       rdf:type     owl:ObjectProperty;
-										rdfs:label	"hasOncologicalTreatmentLine";
-										rdfs:domain	clarify:LCPatient;
-										rdfs:range	clarify:OncologicalTreatmentLine;
-										rdfs:comment "Oncological treatment line  received by the patient.";
-										dcterms:modified "2020-10-20"^^xsd:date;
-										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:hasChemotherapyTreatmentLine       rdf:type     owl:ObjectProperty;
 										rdfs:label	"hasChemotherapyTreatmentLine";
@@ -2894,15 +2003,6 @@ clarify:hasOncologicalSurgery	rdf:type        owl:ObjectProperty;
 											dcterms:modified "2020-10-20"^^xsd:date;
 											prv:File "surgery.ttl";
 											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:hasPatientHistory	rdf:type        owl:ObjectProperty;	
-							rdfs:label	"hasPatientHistory";
-							rdfs:domain	clarify:CancerPatient;
-							rdfs:range	clarify:PatientHistory;
-							rdfs:comment "Connection between patient and her/his cancer history.";
-							dcterms:modified "2020-11-16"^^xsd:date;
-							prv:File "oncological_history.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:hasFamilyHistory	rdf:type        owl:ObjectProperty;	
 							rdfs:label	"hasFamilyHistory";
@@ -2985,15 +2085,6 @@ clarify:hasTumorHistology	rdf:type        owl:ObjectProperty;
 						prv:File "tumor_histology.ttl";
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.										
 
-clarify:hasPerformanceStatus   rdf:type     owl:ObjectProperty;
-							rdfs:label	"hasPerformanceStatus";
-							rdfs:domain	clarify:CancerPatient;
-							rdfs:range	clarify:PerformanceStatus;
-							rdfs:comment "Relation between the patient and their performance status.";
-							dcterms:modified "2020-10-21"^^xsd:date;
-							prv:File "performance_status.ttl";
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
 clarify:hasSmokingHistory   rdf:type     owl:ObjectProperty;
 							rdfs:label	"hasSmokingHistory";
 							rdfs:domain	clarify:CancerPatient;
@@ -3003,16 +2094,575 @@ clarify:hasSmokingHistory   rdf:type     owl:ObjectProperty;
 							prv:File "smoker_information.ttl";
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
-clarify:hasReproductionHistory  rdf:type     owl:ObjectProperty;
-								rdfs:label	"hasReproductionHistory";
+clarify:hasTreatmentLineMaintenance	rdf:type	owl:ObjectProperty;
+									rdfs:label	"hasTreatmentLineMaintenance";
+									rdfs:domain	clarify:OncologicalTreatmentLine;
+									rdfs:range	clarify:Drug;
+									rdfs:comment "Represents the type of drugs that are prescribed for the maintenance.";
+									dcterms:modified "2021-02-18"^^xsd:date;
+									prv:File "chemotherapy_drugs.ttl";															
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+
+
+clarify:treatmentLineCycle	rdf:type	owl:ObjectProperty;
+							rdfs:label	"treatmentLineCycle";
+							rdfs:domain	clarify:OncologicalTreatmentLine;
+							rdfs:range	clarify:TreatmentLineCycle;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "chemotherapy_drugs.ttl";	
+							prv:File "radiotherapy_drugs.ttl";															
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:diagnosticTumorSize	rdf:type	owl:ObjectProperty;
+							rdfs:label	"diagnosticTumorSize";
+							rdfs:domain	clarify:Diagnosis;
+							rdfs:range	clarify:TumorSize;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "diagnostic.ttl";								
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+
+clarify:mutation_exon19_result	rdf:type	owl:ObjectProperty;
+								rdfs:label	"mutation_exon19_result";
+								rdfs:domain	clarify:Biomarker;
+								rdfs:range	clarify:Exon19Result;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "egfr_mutation.ttl";								
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:mutation_exon21_result	rdf:type	owl:ObjectProperty;
+								rdfs:label	"mutation_exon21_result";
+								rdfs:domain	clarify:Biomarker;
+								rdfs:range	clarify:Exon21Result;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "egfr_mutation.ttl";								
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:occupation	rdf:type	owl:ObjectProperty;
+					rdfs:label	"occupation";
+					rdfs:domain	clarify:LCPatient;
+					rdfs:range	clarify:PatientOccupation;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					prv:File "environmental_risk.ttl";								
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.																
+
+clarify:familyType	rdf:type	owl:ObjectProperty;
+					rdfs:label	"familyType";
+					rdfs:domain	clarify:FamilyHistory;
+					rdfs:range	clarify:FamilyType;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					prv:File "oncological_history.ttl";								
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:placeOfDeath	rdf:type owl:ObjectProperty;	
+						rdfs:label	"placeOfDeath";
+						rdfs:domain	clarify:StatusEvolution;
+						rdfs:range	clarify:PlaceOfDeath;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						prv:File "monitoring.ttl";
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasTestResult	rdf:type owl:ObjectProperty;	
+							rdfs:label	"hasTestResult";
+							rdfs:domain	clarify:Biomarker;
+							rdfs:range	clarify:BiomarkerResult;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "her2_mutation.ttl";
+							prv:File "pdl1_expression.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+
+clarify:hasTestIHQResult	rdf:type owl:ObjectProperty;	
+							rdfs:label	"hasTestIHQResult";
+							rdfs:domain	clarify:Biomarker;
+							rdfs:range	clarify:BiomarkerIHQResult;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "alk_mutation.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasTestFISHResult	rdf:type owl:ObjectProperty;	
+							rdfs:label	"hasTestFISHResult";
+							rdfs:domain	clarify:Biomarker;
+							rdfs:range	clarify:BiomarkerFISHResult;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "alk_mutation.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasTestRNAResult	rdf:type owl:ObjectProperty;	
+							rdfs:label	"hasTestRNAResult";
+							rdfs:domain	clarify:Biomarker;
+							rdfs:range	clarify:BiomarkerRNAResult;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "alk_mutation.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasResult	rdf:type owl:ObjectProperty;	
+					rdfs:label	"hasResult";
+					rdfs:domain	clarify:Biomarker;
+					rdfs:range	clarify:BiomarkerResult;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					prv:File "biomarker_mutation.ttl";
+					prv:File "ros1_mutation.ttl";
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasBestResponse	rdf:type owl:ObjectProperty;	
+						rdfs:label	"hasBestResponse";
+						rdfs:domain	clarify:ChemotherapyTreatmentLine;
+						rdfs:range	clarify:TreatementLineBestResponse;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						prv:File "chemotherapy_treatment_line.ttl";
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasType	rdf:type owl:ObjectProperty;	
+				rdfs:label	"hasType";
+				rdfs:domain	clarify:ChemotherapyTreatmentLine;
+				rdfs:range	clarify:TreatmentLineType;
+				dcterms:modified "2021-02-25"^^xsd:date;
+				prv:File "chemotherapy_treatment_line.ttl";
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:basedOn	rdf:type owl:ObjectProperty;	
+				rdfs:label	"basedOn";
+				rdfs:domain	clarify:StageClassification;
+				rdfs:range	clarify:Assessment;
+				dcterms:modified "2021-02-25"^^xsd:date;
+				prv:File "clinical_stadification_techniques.ttl";
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:is_directed_OrNot	rdf:type owl:ObjectProperty;	
+							rdfs:label	"is_directed_OrNot";
+							rdfs:domain	clarify:ClinicalTrial;
+							rdfs:range	clarify:TrialType;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "clinical_trial.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasType	rdf:type owl:ObjectProperty;	
+				rdfs:label	"hasType";
+				rdfs:domain	clarify:ClinicalTrial;
+				rdfs:range	clarify:TrialType;
+				dcterms:modified "2021-02-25"^^xsd:date;
+				prv:File "clinical_trial.ttl";
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasPhase	rdf:type owl:ObjectProperty;	
+					rdfs:label	"hasPhase";
+					rdfs:domain	clarify:ClinicalTrial;
+					rdfs:range	clarify:TrialPhase;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					prv:File "clinical_trial.ttl";
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_mutation_T790M_positive_result	rdf:type owl:ObjectProperty;	
+											rdfs:label	"has_mutation_T790M_positive_result";
+											rdfs:domain	clarify:Biomarker;
+											rdfs:range	clarify:T790PositiveResult;
+											dcterms:modified "2021-02-25"^^xsd:date;
+											prv:File "egfr_mutation.ttl";
+											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_mutation_T790M_negative_result	rdf:type owl:ObjectProperty;	
+											rdfs:label	"has_mutation_T790M_negative_result";
+											rdfs:domain	clarify:Biomarker;
+											rdfs:range	clarify:T790NegativeResult;
+											dcterms:modified "2021-02-25"^^xsd:date;
+											prv:File "egfr_mutation.ttl";
+											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasNegativeTestResult	rdf:type owl:ObjectProperty;	
+								rdfs:label	"hasNegativeTestResult";
+								rdfs:domain	clarify:Biomarker;
+								rdfs:range	clarify:BiomarkerNegativeResult;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "egfr_mutation.ttl";
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:exposedTo_dieselSmoke	rdf:type owl:ObjectProperty;	
+								rdfs:label	"exposedTo_dieselSmoke";
 								rdfs:domain	clarify:CancerPatient;
-								rdfs:range	clarify:ReproductionHistory;
-								rdfs:comment "Relation between the patient and their reproduction history.";
-								dcterms:modified "2020-10-21"^^xsd:date;
-								prv:File "reproductive_information.ttl";
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+								rdfs:range	clarify:Carcinogen;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "environmental_risk.ttl";
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+clarify:exposedTo_asbestosExposureType	rdf:type owl:ObjectProperty;	
+										rdfs:label	"exposedTo_asbestosExposureType";
+										rdfs:domain	clarify:CancerPatient;
+										rdfs:range	clarify:Carcinogen;
+										dcterms:modified "2021-02-25"^^xsd:date;
+										prv:File "environmental_risk.ttl";
+										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+clarify:exposedTo_asbestos	rdf:type owl:ObjectProperty;	
+							rdfs:label	"exposedTo_asbestos";
+							rdfs:domain	clarify:CancerPatient;
+							rdfs:range	clarify:Carcinogen;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "environmental_risk.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:exposedTo_silica	rdf:type owl:ObjectProperty;	
+							rdfs:label	"exposedTo_silica";
+							rdfs:domain	clarify:CancerPatient;
+							rdfs:range	clarify:Carcinogen;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "environmental_risk.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:exposedTo_asbestosExposure	rdf:type owl:ObjectProperty;	
+									rdfs:label	"exposedTo_asbestosExposure";
+									rdfs:domain	clarify:CancerPatient;
+									rdfs:range	clarify:Carcinogen;
+									dcterms:modified "2021-02-25"^^xsd:date;
+									prv:File "environmental_risk.ttl";
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:exposedTo_arsenic	rdf:type owl:ObjectProperty;	
+							rdfs:label	"exposedTo_arsenic";
+							rdfs:domain	clarify:CancerPatient;
+							rdfs:range	clarify:Carcinogen;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "environmental_risk.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:exposedTo_mostProbably	rdf:type owl:ObjectProperty;	
+								rdfs:label	"exposedTo_mostProbably";
+								rdfs:domain	clarify:CancerPatient;
+								rdfs:range	clarify:Carcinogen;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "environmental_risk.ttl";
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:exposedTo_radon	rdf:type owl:ObjectProperty;	
+						rdfs:label	"exposedTo_radon";
+						rdfs:domain	clarify:CancerPatient;
+						rdfs:range	clarify:Carcinogen;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						prv:File "environmental_risk.ttl";
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_familyWithCancer_OrNot	rdf:type owl:ObjectProperty;	
+									rdfs:label	"has_familyWithCancer_OrNot";
+									rdfs:domain	clarify:CancerPatient;
+									rdfs:range	clarify:FamilyWithCancer;
+									dcterms:modified "2021-02-25"^^xsd:date;
+									prv:File "family_antecedents.ttl";
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasFamilyCancerType	rdf:type owl:ObjectProperty;	
+							rdfs:label	"hasFamilyCancerType";
+							rdfs:domain	clarify:CancerPatient;
+							rdfs:range	clarify:CancerType;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "family_antecedents.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasSymptom	rdf:type owl:ObjectProperty;	
+					rdfs:label	"hasSymptom";
+					rdfs:domain	clarify:Concept;
+					rdfs:range	clarify:Phenotype;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					prv:File "First_consultation_pre_oncology.ttl";
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:patient_is_asymptomatic	rdf:type owl:ObjectProperty;	
+								rdfs:label	"patient_is_asymptomatic";
+								rdfs:domain	clarify:Observation;
+								rdfs:range	clarify:Phenotype;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "First_consultation_pre_oncology.ttl";
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_cancer_metastasized_to	rdf:type owl:ObjectProperty;	
+									rdfs:label	"has_cancer_metastasized_to";
+									rdfs:domain	clarify:CancerPatient;
+									rdfs:range	clarify:MetastasisLocation;
+									dcterms:modified "2021-02-25"^^xsd:date;
+									prv:File "metastasis_location.ttl";
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasReasonOfDeath	rdf:type owl:ObjectProperty;	
+							rdfs:label	"hasReasonOfDeath";
+							rdfs:domain	clarify:StatusEvolution;
+							rdfs:range	clarify:ReasonOfDeath;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "monitoring.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasCurrentStatus	rdf:type owl:ObjectProperty;	
+							rdfs:label	"hasCurrentStatus";
+							rdfs:domain	clarify:StatusEvolution;
+							rdfs:range	clarify:CurrentStatus;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "monitoring.ttl";
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasCauseOfDeath	rdf:type owl:ObjectProperty;	
+						rdfs:label	"hasCauseOfDeath";
+						rdfs:domain	clarify:StatusEvolution;
+						rdfs:range	clarify:CauseOfDeath;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						prv:File "monitoring.ttl";
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_previousCancerHistory_OrNot	rdf:type owl:ObjectProperty;	
+										rdfs:label	"has_previousCancerHistory_OrNot";
+										rdfs:domain	clarify:CancerPatient;
+										rdfs:range	clarify:PatientCancerHistory;
+										dcterms:modified "2021-02-25"^^xsd:date;
+										prv:File "oncological_history.ttl";
+										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasPreviousCancerType	rdf:type owl:ObjectProperty;	
+								rdfs:label	"hasPreviousCancerType";
+								rdfs:domain	clarify:CancerPatient;
+								rdfs:range	clarify:CancerType;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "oncological_history.ttl";
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasCurrentCancerType	rdf:type	owl:ObjectProperty;
+								rdfs:label	"hasCurrentCancerType";
+								rdfs:domain	clarify:CancerPatient;
+								rdfs:range	clarify:CancerType;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "patient.ttl";								
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:locatedInHospital	rdf:type	owl:ObjectProperty;
+							rdfs:label	"locatedInHospital";
+							rdfs:domain	clarify:CancerPatient;
+							rdfs:range	clarify:Hospital;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "patient.ttl";								
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:locatedInCity	rdf:type	owl:ObjectProperty;
+						rdfs:label	"locatedInCity";
+						rdfs:domain	clarify:CancerPatient;
+						rdfs:range	clarify:City;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						prv:File "patient.ttl";								
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasValue	rdf:type	owl:ObjectProperty;
+					rdfs:label	"hasValue";
+					rdfs:domain	clarify:PerformanceStatusObservation;
+					rdfs:range	clarify:PerformanceStatus;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					prv:File "performance_status.ttl";								
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasPerformanceStatusObservation	rdf:type	owl:ObjectProperty;
+										rdfs:label	"hasPerformanceStatusObservation";
+										rdfs:domain	clarify:CancerPatient;
+										rdfs:range	clarify:PerformanceStatusObservation;
+										dcterms:modified "2021-02-25"^^xsd:date;
+										prv:File "performance_status.ttl";								
+										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasProgressionLocation	rdf:type	owl:ObjectProperty;
+								rdfs:label	"hasProgressionLocation";
+								rdfs:domain	clarify:CancerPatient;
+								rdfs:range	clarify:ProgressionLocation;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "progression_location.ttl";								
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:is_located_in	rdf:type	owl:ObjectProperty;
+						rdfs:label	"is_located_in";
+						rdfs:domain	clarify:RadiotherapyTreatmentLine;
+						rdfs:range	clarify:RadiotherapyLocation;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						prv:File "radiotherapy_treatment_line.ttl";								
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasIntention	rdf:type	owl:ObjectProperty;
+						rdfs:label	"hasIntention";
+						rdfs:domain	clarify:RadiotherapyTreatmentLine;
+						rdfs:range	clarify:RadiotherapyIntention;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						prv:File "radiotherapy_treatment_line.ttl";								
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_progression_or_relapse	rdf:type	owl:ObjectProperty;
+									rdfs:label	"has_progression_or_relapse";
+									rdfs:domain	clarify:ProgressionRelapseObservation;
+									rdfs:range	clarify:ProgressionOrRelapse;
+									dcterms:modified "2021-02-25"^^xsd:date;
+									prv:File "relapse_progression.ttl";								
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasTherapyType	rdf:type	owl:ObjectProperty;
+						rdfs:label	"hasTherapyType";
+						rdfs:domain	clarify:ProgressionRelapseObservation;
+						rdfs:range	clarify:TherapyType;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						prv:File "relapse_progression.ttl";								
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasProgressionType	rdf:type	owl:ObjectProperty;
+							rdfs:label	"hasProgressionType";
+							rdfs:domain	clarify:ProgressionRelapseObservation;
+							rdfs:range	clarify:ProgressionType;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "relapse_progression.ttl";								
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasTreatmentLineNumber	rdf:type	owl:ObjectProperty;
+							rdfs:label	"hasProgressionType";
+							rdfs:domain	clarify:Observation;
+							rdfs:range	clarify:TreatmentLineNumber;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "chemotherapy_treatment_line.ttl";
+							prv:File "relapse_progression.ttl";								
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasProgressionRelapse	rdf:type	owl:ObjectProperty;
+								rdfs:label	"hasProgressionRelapse";
+								rdfs:domain	clarify:CancerPatient;
+								rdfs:range	clarify:ProgressionRelapse;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "relapse_progression_existence.ttl";								
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:livedWithSmoker_OrNot	rdf:type	owl:ObjectProperty;
+								rdfs:label	"livedWithSmoker_OrNot";
+								rdfs:domain	clarify:SmokingHistory;
+								rdfs:range	clarify:SmokerFamily;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "smoker_information.ttl";								
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:livingWithSmoker_OrNot	rdf:type	owl:ObjectProperty;
+								rdfs:label	"livingWithSmoker_OrNot";
+								rdfs:domain	clarify:SmokingHistory;
+								rdfs:range	clarify:SmokerFamily;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "smoker_information.ttl";								
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasPathologicalResponse	rdf:type	owl:ObjectProperty;
+								rdfs:label	"hasPathologicalResponse";
+								rdfs:domain	clarify:OncologicalSurgery;
+								rdfs:range	clarify:SurgeryPathologicalResponse;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "surgery.ttl";								
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasClass	rdf:type	owl:ObjectProperty;
+					rdfs:label	"hasClass";
+					rdfs:domain	clarify:OncologicalSurgery;
+					rdfs:range	clarify:SurgeryClass;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					prv:File "surgery.ttl";								
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasSubType	rdf:type	owl:ObjectProperty;
+					rdfs:label	"hasSubType";
+					rdfs:domain	clarify:OncologicalSurgery;
+					rdfs:range	clarify:SurgerySubType;
+					dcterms:modified "2021-02-25"^^xsd:date;
+					prv:File "surgery.ttl";								
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasResectionGrade	rdf:type	owl:ObjectProperty;
+							rdfs:label	"hasResectionGrade";
+							rdfs:domain	clarify:OncologicalSurgery;
+							rdfs:range	clarify:SurgeryResectionGrade;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "surgery.ttl";								
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_PerioperativeDeath_orNot	rdf:type	owl:ObjectProperty;
+										rdfs:label	"has_PerioperativeDeath_orNot";
+										rdfs:domain	clarify:OncologicalSurgery;
+										rdfs:range	clarify:PerioperativeDeath;
+										dcterms:modified "2021-02-25"^^xsd:date;
+										prv:File "surgery.ttl";								
+										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:basedOn_TumorSize	rdf:type	owl:ObjectProperty;
+							rdfs:label	"basedOn_TumorSize";
+							rdfs:domain	clarify:CancerStageTNM;
+							rdfs:range	clarify:TumorSize;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "surgery.ttl";								
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:basedOn_LymphNodesInvolvement	rdf:type	owl:ObjectProperty;
+										rdfs:label	"basedOn_LymphNodesInvolvement";
+										rdfs:domain	clarify:CancerStageTNM;
+										rdfs:range	clarify:LymphNodesInvolvement;
+										dcterms:modified "2021-02-25"^^xsd:date;
+										prv:File "surgery.ttl";								
+										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:basedOn_MetastatisStage	rdf:type	owl:ObjectProperty;
+								rdfs:label	"basedOn_MetastatisStage";
+								rdfs:domain	clarify:CancerStageTNM;
+								rdfs:range	clarify:MetastatisStage;
+								dcterms:modified "2021-02-25"^^xsd:date;
+								prv:File "surgery.ttl";								
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_SynchronousTumor_OrNot	rdf:type	owl:ObjectProperty;
+									rdfs:label	"has_SynchronousTumor_OrNot";
+									rdfs:domain	clarify:CancerPatient;
+									rdfs:range	clarify:SynchronousTumor;
+									dcterms:modified "2021-02-25"^^xsd:date;
+									prv:File "Synchronous_tumor.ttl";								
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasTrialTarget	rdf:type	owl:ObjectProperty;
+						rdfs:label	"hasTrialTarget";
+						rdfs:domain	clarify:ClinicalTrial;
+						rdfs:range	clarify:TrialTarget;
+						dcterms:modified "2021-02-25"^^xsd:date;
+						prv:File "targets_clinical_trial.ttl";								
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+					
+clarify:hasMesotheliomaType	rdf:type	owl:ObjectProperty;
+							rdfs:label	"hasMesotheliomaType";
+							rdfs:domain	clarify:TumorType;
+							rdfs:range	clarify:MesotheliomaType;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "tumor_histology.ttl";								
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasAdenocarcinomaHistology	rdf:type	owl:ObjectProperty;
+									rdfs:label	"hasAdenocarcinomaHistology";
+									rdfs:domain	clarify:TumorType;
+									rdfs:range	clarify:AdenocarcinomaHistology;
+									dcterms:modified "2021-02-25"^^xsd:date;
+									prv:File "tumor_histology.ttl";								
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasCarcinomaType	rdf:type	owl:ObjectProperty;
+							rdfs:label	"hasCarcinomaType";
+							rdfs:domain	clarify:TumorType;
+							rdfs:range	clarify:CarcinomaType;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "tumor_histology.ttl";								
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasHistologyDegree	rdf:type	owl:ObjectProperty;
+							rdfs:label	"hasHistologyDegree";
+							rdfs:domain	clarify:TumorType;
+							rdfs:range	clarify:HistologyDegree;
+							dcterms:modified "2021-02-25"^^xsd:date;
+							prv:File "tumor_histology.ttl";								
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasSmallCellCarcinomaType	rdf:type	owl:ObjectProperty;
+									rdfs:label	"hasSmallCellCarcinomaType";
+									rdfs:domain	clarify:TumorType;
+									rdfs:range	clarify:SmallCellCarcinomaType;
+									dcterms:modified "2021-02-25"^^xsd:date;
+									prv:File "tumor_histology.ttl";								
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+	 
 ######################################################################################################################################
 #####################################################    Publication    ##############################################################
 ######################################################################################################################################
@@ -3045,13 +2695,13 @@ clarify:relation_isRelatedTo_annotation	rdf:type        owl:ObjectProperty;
 										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:relation_isRelatedTo_publication	rdf:type        owl:ObjectProperty;	
-										rdfs:label	"relation_isRelatedTo_publication";
-										rdfs:domain	clarify:Relation;
-										rdfs:range	clarify:Publication;
-										rdfs:comment "The relationship between the relation and the publication.";
-										dcterms:modified "2020-12-15"^^xsd:date;
-										prv:File "publication_annotation.ttl";
-										dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.				
+											rdfs:label	"relation_isRelatedTo_publication";
+											rdfs:domain	clarify:Relation;
+											rdfs:range	clarify:Publication;
+											rdfs:comment "The relationship between the relation and the publication.";
+											dcterms:modified "2020-12-15"^^xsd:date;
+											prv:File "publication_annotation.ttl";
+											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.				
 
 ######################################################################################################################################
 #########################################################    Drug    #################################################################
