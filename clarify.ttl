@@ -302,13 +302,6 @@ clarify:TreatmentLineType  	rdf:type owl:Class;
 							dcterms:modified "2021-02-25"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
-clarify:ChemoTreatmentLineType  	rdf:type owl:Class;
-									rdfs:label	"ChemoTreatmentLineType";
-									rdfs:subClassOf	clarify:TreatmentLineType;
-									dcterms:modified "2021-02-18"^^xsd:date;
-									prv:File "chemotherapy_treatment_line.ttl";
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
 clarify:TreatementLineBestResponse  	rdf:type owl:Class;
 										rdfs:label	"TreatementLineBestResponse";
 										rdfs:subClassOf	clarify:Concept;
@@ -2216,10 +2209,9 @@ clarify:hasBestResponse	rdf:type owl:ObjectProperty;
 
 clarify:hasType	rdf:type owl:ObjectProperty;	
 				rdfs:label	"hasType";
-				rdfs:domain	clarify:ChemotherapyTreatmentLine;
-				rdfs:range	clarify:TreatmentLineType;
+				rdfs:domain	clarify:Concept;
+				rdfs:range	clarify:Concept;
 				dcterms:modified "2021-02-25"^^xsd:date;
-				prv:File "chemotherapy_treatment_line.ttl";
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:basedOn	rdf:type owl:ObjectProperty;	
@@ -2237,14 +2229,6 @@ clarify:is_directed_OrNot	rdf:type owl:ObjectProperty;
 							dcterms:modified "2021-02-25"^^xsd:date;
 							prv:File "clinical_trial.ttl";
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:hasType	rdf:type owl:ObjectProperty;	
-				rdfs:label	"hasType";
-				rdfs:domain	clarify:ClinicalTrial;
-				rdfs:range	clarify:TrialType;
-				dcterms:modified "2021-02-25"^^xsd:date;
-				prv:File "clinical_trial.ttl";
-				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:hasPhase	rdf:type owl:ObjectProperty;	
 					rdfs:label	"hasPhase";
