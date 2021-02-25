@@ -21,7 +21,6 @@
 ######################################################################################################################################
 
 
-
 clarify:Concept	rdf:type	owl:Class;
 				rdfs:label	"Concept";
 				rdfs:comment "Constituents of thoughts or real world entities.";
