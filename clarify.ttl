@@ -315,59 +315,11 @@ clarify:CancerType  rdf:type owl:Class;
 					dcterms:modified "2021-02-18"^^xsd:date;
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
-clarify:BiomarkerResult rdf:type owl:Class;
-						rdfs:label	"BiomarkerResult";
+clarify:BiomarkerTestResult rdf:type owl:Class;
+						rdfs:label	"BiomarkerTestResult";
 						rdfs:subClassOf	clarify:Concept;
-						dcterms:modified "2021-02-25"^^xsd:date;
+						dcterms:modified "2021-03-02"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:BiomarkerIHQResult  rdf:type owl:Class;
-							rdfs:label	"BiomarkerIHQResult";
-							rdfs:subClassOf	clarify:BiomarkerResult;
-							dcterms:modified "2021-02-25"^^xsd:date;
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:BiomarkerFISHResult rdf:type owl:Class;
-							rdfs:label	"BiomarkerFISHResult";
-							rdfs:subClassOf	clarify:BiomarkerResult;
-							dcterms:modified "2021-02-25"^^xsd:date;
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:BiomarkerRNAResult  rdf:type owl:Class;
-							rdfs:label	"BiomarkerRNAResult";
-							rdfs:subClassOf	clarify:BiomarkerResult;
-							dcterms:modified "2021-02-25"^^xsd:date;
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:T790NegativeResult  rdf:type owl:Class;
-							rdfs:label	"T790NegativeResult";
-							rdfs:subClassOf	clarify:BiomarkerResult;
-							dcterms:modified "2021-02-25"^^xsd:date;
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:BiomarkerNegativeResult rdf:type owl:Class;
-								rdfs:label	"BiomarkerNegativeResult";
-								rdfs:subClassOf	clarify:BiomarkerResult;
-								dcterms:modified "2021-02-25"^^xsd:date;
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:Exon21Result 	rdf:type owl:Class;
-						rdfs:label	"Exon21Result";
-						rdfs:subClassOf	clarify:BiomarkerResult;
-						dcterms:modified "2021-02-25"^^xsd:date;
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:Exon19Result 	rdf:type owl:Class;
-						rdfs:label	"Exon19Result";
-						rdfs:subClassOf	clarify:BiomarkerResult;
-						dcterms:modified "2021-02-25"^^xsd:date;
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
-
-clarify:T790PositiveResult 	rdf:type owl:Class;
-							rdfs:label	"T790PositiveResult";
-							rdfs:subClassOf	clarify:BiomarkerResult;
-							dcterms:modified "2021-02-25"^^xsd:date;
-							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
 clarify:TreatmentLineCycle  rdf:type owl:Class;
 							rdfs:label	"TreatmentLineCycle";
@@ -535,7 +487,7 @@ clarify:LymphNodesInvolvement	rdf:type	owl:Class;
 
 clarify:PerioperativeDeath	rdf:type	owl:Class;
 							rdfs:label	"PerioperativeDeath";
-							rdfs:subClassOf	clarify:Concept;
+							rdfs:subClassOf	clarify:CauseOfDeath;
 							dcterms:modified "2021-02-25"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -1595,6 +1547,22 @@ clarify:treatementLineStartDate	rdf:type owl:DatatypeProperty;
 								prv:File "radiotherapy_treatment_line.ttl";
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+clarify:has_mutation_NOS_result	rdf:type owl:DatatypeProperty;	
+								rdfs:label	"has_mutation_NOS_result";
+								rdfs:domain	clarify:Biomarker;
+								rdfs:range	rdfs:Literal;
+								dcterms:modified "2021-03-02"^^xsd:date;
+								prv:File "egfr_mutation.ttl";
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_mutation_other_result	rdf:type owl:DatatypeProperty;	
+									rdfs:label	"has_mutation_other_result";
+									rdfs:domain	clarify:Biomarker;
+									rdfs:range	rdfs:Literal;
+									dcterms:modified "2021-03-02"^^xsd:date;
+									prv:File "egfr_mutation.ttl";
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
 
 ######################################################################################################################################
 #####################################################    Publication    ##############################################################
@@ -2159,45 +2127,36 @@ clarify:placeOfDeath	rdf:type owl:ObjectProperty;
 clarify:hasTestResult	rdf:type owl:ObjectProperty;	
 							rdfs:label	"hasTestResult";
 							rdfs:domain	clarify:Biomarker;
-							rdfs:range	clarify:BiomarkerResult;
+							rdfs:range	clarify:BiomarkerTestResult;
 							dcterms:modified "2021-02-25"^^xsd:date;
 							prv:File "her2_mutation.ttl";
 							prv:File "pdl1_expression.ttl";
+							prv:File "ros1_mutation.ttl";
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 
 clarify:hasTestIHQResult	rdf:type owl:ObjectProperty;	
 							rdfs:label	"hasTestIHQResult";
 							rdfs:domain	clarify:Biomarker;
-							rdfs:range	clarify:BiomarkerIHQResult;
-							dcterms:modified "2021-02-25"^^xsd:date;
+							rdfs:range	clarify:BiomarkerTestResult;
+							dcterms:modified "2021-03-02"^^xsd:date;
 							prv:File "alk_mutation.ttl";
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:hasTestFISHResult	rdf:type owl:ObjectProperty;	
 							rdfs:label	"hasTestFISHResult";
 							rdfs:domain	clarify:Biomarker;
-							rdfs:range	clarify:BiomarkerFISHResult;
-							dcterms:modified "2021-02-25"^^xsd:date;
+							rdfs:range	clarify:BiomarkerTestResult;
+							dcterms:modified "2021-03-02"^^xsd:date;
 							prv:File "alk_mutation.ttl";
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:hasTestRNAResult	rdf:type owl:ObjectProperty;	
 							rdfs:label	"hasTestRNAResult";
 							rdfs:domain	clarify:Biomarker;
-							rdfs:range	clarify:BiomarkerRNAResult;
-							dcterms:modified "2021-02-25"^^xsd:date;
+							rdfs:range	clarify:BiomarkerTestResult;
+							dcterms:modified "2021-03-02"^^xsd:date;
 							prv:File "alk_mutation.ttl";
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:hasResult	rdf:type owl:ObjectProperty;	
-					rdfs:label	"hasResult";
-					rdfs:domain	clarify:Biomarker;
-					rdfs:range	clarify:BiomarkerResult;
-					dcterms:modified "2021-02-25"^^xsd:date;
-					prv:File "biomarker_mutation.ttl";
-					prv:File "ros1_mutation.ttl";
-					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:hasBestResponse	rdf:type owl:ObjectProperty;	
 						rdfs:label	"hasBestResponse";
@@ -2241,24 +2200,40 @@ clarify:hasPhase	rdf:type owl:ObjectProperty;
 clarify:has_mutation_T790M_positive_result	rdf:type owl:ObjectProperty;	
 											rdfs:label	"has_mutation_T790M_positive_result";
 											rdfs:domain	clarify:Biomarker;
-											rdfs:range	clarify:T790PositiveResult;
-											dcterms:modified "2021-02-25"^^xsd:date;
+											rdfs:range	clarify:BiomarkerTestResult;
+											dcterms:modified "2021-03-02"^^xsd:date;
 											prv:File "egfr_mutation.ttl";
 											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:has_mutation_T790M_negative_result	rdf:type owl:ObjectProperty;	
 											rdfs:label	"has_mutation_T790M_negative_result";
 											rdfs:domain	clarify:Biomarker;
-											rdfs:range	clarify:T790NegativeResult;
-											dcterms:modified "2021-02-25"^^xsd:date;
+											rdfs:range	clarify:BiomarkerTestResult;
+											dcterms:modified "2021-03-02"^^xsd:date;
 											prv:File "egfr_mutation.ttl";
 											dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_mutation_exon19_result	rdf:type owl:ObjectProperty;	
+									rdfs:label	"has_mutation_exon19_result";
+									rdfs:domain	clarify:Biomarker;
+									rdfs:range	clarify:BiomarkerTestResult;
+									dcterms:modified "2021-03-02"^^xsd:date;
+									prv:File "egfr_mutation.ttl";
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_mutation_exon21_result	rdf:type owl:ObjectProperty;	
+									rdfs:label	"has_mutation_exon21_result";
+									rdfs:domain	clarify:Biomarker;
+									rdfs:range	clarify:BiomarkerTestResult;
+									dcterms:modified "2021-03-02"^^xsd:date;
+									prv:File "egfr_mutation.ttl";
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:hasNegativeTestResult	rdf:type owl:ObjectProperty;	
 								rdfs:label	"hasNegativeTestResult";
 								rdfs:domain	clarify:Biomarker;
-								rdfs:range	clarify:BiomarkerNegativeResult;
-								dcterms:modified "2021-02-25"^^xsd:date;
+								rdfs:range	clarify:BiomarkerTestResult;
+								dcterms:modified "2021-03-02"^^xsd:date;
 								prv:File "egfr_mutation.ttl";
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
