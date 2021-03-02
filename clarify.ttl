@@ -2083,23 +2083,6 @@ clarify:diagnosticTumorSize	rdf:type	owl:ObjectProperty;
 							prv:File "diagnostic.ttl";								
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-
-clarify:mutation_exon19_result	rdf:type	owl:ObjectProperty;
-								rdfs:label	"mutation_exon19_result";
-								rdfs:domain	clarify:Biomarker;
-								rdfs:range	clarify:Exon19Result;
-								dcterms:modified "2021-02-25"^^xsd:date;
-								prv:File "egfr_mutation.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:mutation_exon21_result	rdf:type	owl:ObjectProperty;
-								rdfs:label	"mutation_exon21_result";
-								rdfs:domain	clarify:Biomarker;
-								rdfs:range	clarify:Exon21Result;
-								dcterms:modified "2021-02-25"^^xsd:date;
-								prv:File "egfr_mutation.ttl";								
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 clarify:occupation	rdf:type	owl:ObjectProperty;
 					rdfs:label	"occupation";
 					rdfs:domain	clarify:LCPatient;
