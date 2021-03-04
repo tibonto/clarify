@@ -1440,13 +1440,21 @@ clarify:treatementLineStartDate	rdf:type owl:DatatypeProperty;
 								dcterms:modified "2021-02-25"^^xsd:date;
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:has_mutation_other_result	rdf:type owl:DatatypeProperty;	
-									rdfs:label	"has_mutation_other_result";
+clarify:has_other_result	rdf:type owl:DatatypeProperty;	
+									rdfs:label	"has_other_result";
 									rdfs:domain	clarify:Biomarker;
 									rdfs:range	rdfs:Literal;
 									rdfs:comment "Textual description of other results related to the biomarker.";
 									dcterms:modified "2021-03-02"^^xsd:date;
 									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_NOS_result	rdf:type owl:DatatypeProperty;	
+						rdfs:label	"has_NOS_result";
+						rdfs:domain	clarify:Biomarker;
+						rdfs:range	rdfs:Literal;
+						rdfs:comment "Textual description of NOS(!) results related to the biomarker.";
+						dcterms:modified "2021-03-02"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 
 ######################################################################################################################################
