@@ -591,6 +591,14 @@ clarify:SmallCellCarcinomaType	rdf:type	owl:Class;
 								dcterms:modified "2021-02-25"^^xsd:date;
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+clarify:SecondNeoplasm	rdf:type        owl:Class;	
+						rdfs:label	"SecondNeoplasm";
+						rdfs:subClassOf	clarify:Concept;
+						rdfs:comment "Secondary malignant neoplasm is a malignant tumor whose cause is the treatment (usually radiation or chemotherapy) which was used for a prior tumor.";
+						dcterms:modified "2021-03-18"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+
 ######################################################################################################################################
 #####################################################    Publication    ##############################################################
 ######################################################################################################################################
@@ -1312,14 +1320,6 @@ clarify:deathDate	rdf:type	owl:DatatypeProperty;
 					dcterms:modified "2020-10-21"^^xsd:date;
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:secondNeoplasm	rdf:type        owl:DatatypeProperty;	
-						rdfs:label	"placeOfDeath";
-						rdfs:domain	clarify:StatusEvolution;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Secondary malignant neoplasm is a malignant tumor whose cause is the treatment (usually radiation or chemotherapy) which was used for a prior tumor.";
-						dcterms:modified "2020-10-21"^^xsd:date;
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 clarify:numberOfCigarettesPerDay	rdf:type	owl:DatatypeProperty;	
 									rdfs:label	"numberOfCigarettesPerDay";
 									rdfs:domain	clarify:SmokingHistory;
@@ -1439,22 +1439,6 @@ clarify:treatementLineStartDate	rdf:type owl:DatatypeProperty;
 								rdfs:comment "Represents the starting date of the treatment line.";
 								dcterms:modified "2021-02-25"^^xsd:date;
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:has_other_result	rdf:type owl:DatatypeProperty;	
-									rdfs:label	"has_other_result";
-									rdfs:domain	clarify:Biomarker;
-									rdfs:range	rdfs:Literal;
-									rdfs:comment "Textual description of other results related to the biomarker.";
-									dcterms:modified "2021-03-02"^^xsd:date;
-									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
-clarify:has_NOS_result	rdf:type owl:DatatypeProperty;	
-						rdfs:label	"has_NOS_result";
-						rdfs:domain	clarify:Biomarker;
-						rdfs:range	rdfs:Literal;
-						rdfs:comment "Textual description of NOS(!) results related to the biomarker.";
-						dcterms:modified "2021-03-02"^^xsd:date;
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 
 ######################################################################################################################################
@@ -2450,6 +2434,30 @@ clarify:hasSmallCellCarcinomaType	rdf:type	owl:ObjectProperty;
 									rdfs:comment	"Associates the tumor type with the subtype small cell lung cancer (microcytic).";
 									dcterms:modified "2021-02-25"^^xsd:date;							
 									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasSecondNeoplasm	rdf:type 	owl:ObjectProperty;	
+							rdfs:label	"hasSecondNeoplasm";
+							rdfs:domain	clarify:StatusEvolution;
+							rdfs:range	clarify:SecondNeoplasm;
+							rdfs:comment "Associates the status evolution with the information on secondary malignant neoplasm.";
+							dcterms:modified "2021-03-18"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_other_result	rdf:type owl:ObjectProperty;	
+							rdfs:label	"has_other_result";
+							rdfs:domain	clarify:Biomarker;
+							rdfs:range	clarify:BiomarkerTestResult;
+							rdfs:comment "Assocaites the Biomarker with the other test results.";
+							dcterms:modified "2021-03-18"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:has_NOS_result	rdf:type owl:ObjectProperty;	
+						rdfs:label	"has_NOS_result";
+						rdfs:domain	clarify:Biomarker;
+						rdfs:range	clarify:BiomarkerTestResult;
+						rdfs:comment "Associates the Biomarker with NOS(!) test results.";
+						dcterms:modified "2021-03-18"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 ######################################################################################################################################
 #####################################################    Publication    ##############################################################
