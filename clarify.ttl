@@ -193,6 +193,13 @@ clarify:ComorbidityStatus	rdf:type	owl:Class;
 							dcterms:modified "2021-04-07"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+clarify:ComorbidityTreatmentLine	rdf:type	owl:Class;
+									rdfs:label	"ComorbidityTreatmentLine";
+									rdfs:subClassOf	clarify:Concept;
+									rdfs:comment "Represents the observation of comorbidities and symptoms in patients in each treatment line.";
+									dcterms:modified "2021-06-22"^^xsd:date;
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
 clarify:StatusEvolution	rdf:type	owl:Class;
 							rdfs:label	"StatusEvolution";
 							rdfs:subClassOf	clarify:Observation;
@@ -1072,12 +1079,47 @@ clarify:Drug	rdf:type	owl:Class;
 			dcterms:modified "2020-09-14"^^xsd:date;
 			dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:LungCancerDrug	rdf:type	owl:Class;
-			rdfs:label	"LungCancerDrug";
-			rdfs:subClassOf	clarify:Drug;
-			rdfs:comment "A Drug used in the Lung Cancer treatment.";
-			dcterms:modified "2020-12-15"^^xsd:date;
-			dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+clarify:NonOncologicalDrug	rdf:type	owl:Class;
+							rdfs:label	"NonOncologicalDrug";
+							rdfs:subClassOf	clarify:Drug;
+							rdfs:comment "A Drug which is prescribed to treat disorders other than cancer.";
+							dcterms:modified "2021-06-29"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:OncologicalDrug	rdf:type	owl:Class;
+							rdfs:label	"OncologicalDrug";
+							rdfs:subClassOf	clarify:Drug;
+							rdfs:comment "A Drug category which is prescribed to treat cancer.";
+							dcterms:modified "2021-06-29"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:ChemotherapyDrug	rdf:type	owl:Class;
+							rdfs:label	"ChemotherapyDrug";
+							rdfs:subClassOf	clarify:OncologicalDrug;
+							rdfs:comment "A subcategory of oncological drugs.";
+							dcterms:modified "2021-06-29"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:TKIDrug	rdf:type	owl:Class;
+				rdfs:label	"TKIDrug";
+				rdfs:subClassOf	clarify:OncologicalDrug;
+				rdfs:comment "A subcategory of oncological drugs.";
+				dcterms:modified "2021-06-29"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:ImmunotherapyDrug	rdf:type	owl:Class;
+							rdfs:label	"ImmunotherapyDrug";
+							rdfs:subClassOf	clarify:OncologicalDrug;
+							rdfs:comment "A subcategory of oncological drugs.";
+							dcterms:modified "2021-06-29"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:AngiogenesisInhibitorDrug	rdf:type	owl:Class;
+									rdfs:label	"AngiogenesisInhibitorDrug";
+									rdfs:subClassOf	clarify:OncologicalDrug;
+									rdfs:comment "A subcategory of oncological drugs.";
+									dcterms:modified "2021-06-29"^^xsd:date;
+									dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:Biomarker	 rdf:type	owl:Class;
 					rdfs:label	"Biomarker";
@@ -1163,10 +1205,25 @@ clarify:SymmetricDrugDrugInteraction	rdf:type	owl:Class;
 				dcterms:modified "2020-12-15"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+clarify:NonSymmetricDrugDrugInteraction	rdf:type	owl:Class;
+				rdfs:label	"NonSymmetricDrugDrugInteraction";
+				rdfs:subClassOf	clarify:DrugDrugInteraction;
+				rdfs:comment "The interactions between two drugs that change the effectiveness of the drugs.";
+				dcterms:modified "2021-07-01"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+
 clarify:AdverseEvent	rdf:type	owl:Class;
 				rdfs:label	"AdverseEvent";
 				rdfs:subClassOf	clarify:Concept;
 				rdfs:comment "The concept that explains the consequence of the drug drug interaction resulting in their effectiveness.";
+				dcterms:modified "2020-12-15"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:Impact	rdf:type	owl:Class;
+				rdfs:label	"Impact";
+				rdfs:subClassOf	clarify:Concept;
+				rdfs:comment "The concept that explains the impact of the drug drug interaction resulting in the effectiveness of the object drug.";
 				dcterms:modified "2020-12-15"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -1635,7 +1692,30 @@ clarify:impact	rdf:type	owl:DatatypeProperty;
 				rdfs:comment	"Represents the type impact of the adverse event i.e. increase/decrease";
 				dcterms:modified "2020-12-15"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+ 
+clarify:ddi_description	rdf:type	owl:DatatypeProperty;
+						rdfs:label	"ddi_description";
+						rdfs:domain	clarify:DrugDrugInteraction;
+						rdfs:range	rdfs:Literal;
+						rdfs:comment "The texual description of the drug drug interacion.";
+						dcterms:modified "2021-06-29"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
+clarify:drugAbsorption	rdf:type	owl:DatatypeProperty;
+						rdfs:label	"drugAbsorption";
+						rdfs:domain	clarify:Drug;
+						rdfs:range	rdfs:Literal;
+						rdfs:comment "The texual explanation about the drug absorption.";
+						dcterms:modified "2021-06-29"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+clarify:drugsMechanismOfAction	rdf:type	owl:DatatypeProperty;
+								rdfs:label	"drugsMechanismOfAction";
+								rdfs:domain	clarify:Drug;
+								rdfs:range	rdfs:Literal;
+								rdfs:comment "The texual explanation about the mechanism of action of the drug.";
+								dcterms:modified "2021-06-29"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
 ######################################################################################################################################
 #################################################    Drug Predictions   ##############################################################
@@ -1790,6 +1870,14 @@ clarify:hasComorbidity	rdf:type        owl:ObjectProperty;
 						rdfs:comment	"Connection between patient and her/his Comorbidities.";
 						dcterms:modified "2020-10-21"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:hasTreatmentLineSymptom	rdf:type        owl:ObjectProperty;	
+								rdfs:label	"hasTreatmentLineSymptom";
+								rdfs:domain	clarify:ComorbidityTreatmentLine;
+								rdfs:range	clarify:Disorder;
+								rdfs:comment	"Connection between the ComorbidityTreatmentLine and the observed Comorbidities.";
+								dcterms:modified "2021-06-22"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:hasNonOncologicalConsultation	rdf:type        owl:ObjectProperty;	
 						rdfs:label	"hasNonOncologicalConsultation";
@@ -2497,21 +2585,53 @@ clarify:precipitant_drug	rdf:type	owl:ObjectProperty;
 								dcterms:modified "2020-12-15"^^xsd:date;
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+clarify:precipitant_drug_cui	rdf:type	owl:ObjectProperty;
+								rdfs:label	"precipitant_drug_cui";
+								rdfs:domain	clarify:DrugDrugInteraction;
+								rdfs:range	clarify:Annotation;
+								rdfs:comment	"The relationship between the drug drug interaction and corresponding precipitant drug annotated by CUI IDs.";
+								dcterms:modified "2021-06-30"^^xsd:date;
+								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
 clarify:object_drug	rdf:type	owl:ObjectProperty;
 								rdfs:label	"object_drug";
 								rdfs:domain	clarify:DrugDrugInteraction;
 								rdfs:range	clarify:Drug;
-								rdfs:comment	"The relationship between the drug drug interaction and corresponding object drug.";
+								rdfs:comment	"The relationship between the drug drug interaction and corresponding object drug .";
 								dcterms:modified "2020-12-15"^^xsd:date;
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:effect	rdf:type	owl:ObjectProperty;
-								rdfs:label	"effect";
+clarify:object_drug_cui	rdf:type	owl:ObjectProperty;
+								rdfs:label	"object_drug_cui";
 								rdfs:domain	clarify:DrugDrugInteraction;
-								rdfs:range	clarify:AdverseEvent;
-								rdfs:comment	"The relationship between the drug drug interaction and corresponding adverse event.";
-								dcterms:modified "2020-12-15"^^xsd:date;
+								rdfs:range	clarify:Annotation;
+								rdfs:comment	"The relationship between the drug drug interaction and corresponding object drug annotated by CUI IDs.";
+								dcterms:modified "2021-06-30"^^xsd:date;
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:effect	rdf:type	owl:ObjectProperty;
+				rdfs:label	"effect";
+				rdfs:domain	clarify:DrugDrugInteraction;
+				rdfs:range	clarify:AdverseEvent;
+				rdfs:comment	"The relationship between the drug drug interaction and corresponding adverse event.";
+				dcterms:modified "2020-12-15"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:impact	rdf:type	owl:ObjectProperty;
+				rdfs:label	"impact";
+				rdfs:domain	clarify:DrugDrugInteraction;
+				rdfs:range	clarify:Impact;
+				rdfs:comment	"The relationship between the drug drug interaction and corresponding impact.";
+				dcterms:modified "2021-06-30"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+clarify:effect_cui	rdf:type	owl:ObjectProperty;
+					rdfs:label	"effect_cui";
+					rdfs:domain	clarify:DrugDrugInteraction;
+					rdfs:range	clarify:Annotation;
+					rdfs:comment	"The relationship between the drug drug interaction and corresponding adverse event annotated by CUI IDs.";
+					dcterms:modified "2021-06-30"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 clarify:target_isRelatedTo_gene	rdf:type	owl:ObjectProperty;
 									rdfs:label	"target_isRelatedTo_gene";
