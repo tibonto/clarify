@@ -1696,14 +1696,6 @@ clarify:dse_AvgFrequency	rdf:type	owl:DatatypeProperty;
 							dcterms:modified "2020-12-15"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:impact	rdf:type	owl:DatatypeProperty;
-				rdfs:label	"impact";
-				rdfs:domain	clarify:AdverseEvent;
-				rdfs:range	rdfs:Literal;
-				rdfs:comment	"Represents the type impact of the adverse event i.e. increase/decrease";
-				dcterms:modified "2020-12-15"^^xsd:date;
-				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
- 
 clarify:ddi_description	rdf:type	owl:DatatypeProperty;
 						rdfs:label	"ddi_description";
 						rdfs:domain	clarify:DrugDrugInteraction;
