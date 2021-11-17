@@ -1951,14 +1951,6 @@ clarify:hasDiagnosisStage	rdf:type	owl:ObjectProperty;
 								dcterms:modified "2020-12-10"^^xsd:date;							
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-clarify:hasDiagnosisDate	rdf:type	owl:DataProperty;
-								rdfs:label	"hasDiagnosisDate";
-								rdfs:domain	clarify:Diagnosis;
-								rdfs:range	clarify:CancerStage;
-								rdfs:comment "Relation between the diagnosis observation and the coded cancer stage (at the diagnosis time).";
-								dcterms:modified "2020-12-10"^^xsd:date;							
-								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 clarify:hasDiagnosis	rdf:type     owl:ObjectProperty;
 						rdfs:label	"hasDiagnosis";
 						rdfs:domain	clarify:CPatient;
@@ -2546,7 +2538,7 @@ clarify:hasComorbidityStatus	rdf:type 	owl:ObjectProperty;
 clarify:hasSecondNeoplasmType	rdf:type 	owl:ObjectProperty;	
 								rdfs:label	"hasSecondNeoplasmType";
 								rdfs:domain	clarify:StatusEvolution;
-								rdfs:range	clarify:hasSecondNeoplasmType;
+								rdfs:range	clarify:SecondNeoplasmType;
 								rdfs:comment "Associates Patient with second neoplasm type.";
 								dcterms:modified "2021-05-17"^^xsd:date;
 								dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
