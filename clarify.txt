@@ -6,12 +6,12 @@
 shortName: clarify
 title: CLARIFYUnifiedSchema
 description: A unified schema for representing data integrated in the CLARIFY knowledge graph. This schema defines the main classes and properties presented in data sources that make available clinical notes, scientific publication, genomic data, and drug interactions and the relationships among them.
-autorFullName: Samaneh Jozashoori, Maria-Esther Vidal
-authorEmail: samaneh.jozashoori@tib.eu, maria.vidal@tib.eu
-maintainerFullname: Samaneh Jozashoori
-maintainerEmail: samaneh.jozashoori@tib.eu
+autorFullName: Emetis Niazmand, Maria-Esther Vidal
+authorEmail: emetis.Niazmand@tib.eu, maria.vidal@tib.eu
+maintainerFullname: Emetis Niazmand
+maintainerEmail: emetis.niazmand@tib.eu
 keywords:
 license: GNU General Public License v3.0
-version: v2.0
+version: v8.0
 repositoryURL: https://github.com/tibonto/clarify  # do not change this
 releaseURL: https://github.com/tibonto/clarify/releases/tag/R1.0
